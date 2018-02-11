@@ -1,4 +1,5 @@
-# task-list
+# Task List
+[![CircleCI](https://circleci.com/gh/ruchern/task-list.svg?style=svg)](https://circleci.com/gh/ruchern/task-list)
 
 > A Vue.js project
 
