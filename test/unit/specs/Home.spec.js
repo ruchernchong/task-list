@@ -9,6 +9,6 @@ describe('Home', () => {
   })
 
   test('should render correct title', () => {
-    expect(wrapper.find('h1').text()).toBe('Home')
+    expect(wrapper.find('h1').text()).toBe('Task list')
   })
 })
