@@ -20,16 +20,13 @@ export default new Vuex.Store({
     ],
     links: [
       {
-        id: 1,
         name: 'Github',
         url: 'https://github.com/ruchern'
       },
       {
-        id: 2,
         name: 'Stack Overflow',
         url: 'https://stackoverflow.com/users/4031163/ru-chern-chong'
       }
-    ]
   },
   mutations: {},
   actions: {}

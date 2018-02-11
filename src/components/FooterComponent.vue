@@ -2,14 +2,14 @@
     <footer class="footer">
         <div class="container">
             <div class="columns is-centered has-text-centered">
-                <a :href="link.url" class="icon is-large" target="_blank" rel="noopener" v-for="link in links">
-                    <i class="fa fa-2x" :class="`fa-${link.name.replace(' ','-').toLowerCase()}`"></i>
-                </a>
+                <logo class="icon is-large" :link="link" :key="link.name" v-for="link in links"/>
             </div>
 
             <p class="content has-text-centered">
-                This source code can be found on
-                <a href="https://github.com/ruchern/task-list.git" target="_blank" rel="noopener">Github</a>.
+                This source code for this project can be found on
+                <a href="https://github.com/ruchern/task-list.git" target="_blank" rel="noopener">Github</a> and its
+                licensed by <a href="https://opensource.org/licenses/mit-license.php" target="_blank"
+                               rel="noopener nofollow">MIT</a>.
             </p>
         </div>
     </footer>
@@ -17,11 +17,21 @@
 
 <script>
   import { mapState } from 'vuex'
+  import Logo from '@/components/Logo'
 
   export default {
     name: 'footer-component',
+    components: {
+      Logo
+    },
     computed: {
       ...mapState(['links'])
     }
   }
 </script>
+
+<style lang="scss" scoped>
+    .icon {
+        margin: 15px;
+    }
+</style>
