@@ -10,7 +10,7 @@
 
         <div class="navbar-menu" :class="{ 'is-active': isActive }">
             <div class="navbar-end">
-                <router-link :to="nav.link" class="navbar-item" v-for="nav in navs" exact>{{ nav.name }}</router-link>
+                <router-link :to="nav.link" class="navbar-item" :key="nav.name" v-for="nav in navs" exact>{{ nav.name }}</router-link>
             </div>
         </div>
     </nav>

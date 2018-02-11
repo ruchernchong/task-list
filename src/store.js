@@ -8,12 +8,10 @@ export default new Vuex.Store({
   state: {
     navs: [
       {
-        id: 1,
         name: 'Home',
         link: '/'
       },
       {
-        id: 2,
         name: 'About',
         link: '/about'
       }
