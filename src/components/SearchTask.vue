@@ -1,0 +1,23 @@
+<template>
+    <div class="field">
+        <p class="control has-icons-left">
+            <span class="icon is-left"><i class="fa fa-fw fa-search"></i></span>
+            <input type="search" class="input" placeholder="Search tasks" @keyup="setQuery"/>
+        </p>
+    </div>
+</template>
+
+<script>
+  export default {
+    name: 'search-task',
+    methods: {
+      async setQuery (ev) {
+        await this.$store.dispatch('setQuery', ev.target.value.toLowerCase())
+      }
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>
