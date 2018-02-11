@@ -1,23 +1,25 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+    <div id="app">
+        <header-component/>
+        <transition enter-active-class="animated fadeIn">
+            <router-view/>
+        </transition>
+        <footer-component/>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import HeaderComponent from '@/components/HeaderComponent'
+  import FooterComponent from '@/components/FooterComponent'
+
+  export default {
+    name: 'App',
+    components: {
+      HeaderComponent, FooterComponent
+    }
+  }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+    @import './sass/app.scss';
 </style>
