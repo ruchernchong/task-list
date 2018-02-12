@@ -13,7 +13,7 @@
             <td class="has-text-centered">
                 <i class="fa fa-2x fa-check-circle"
                    :class="[ task.completed ? 'has-text-success' : 'has-text-muted' ]"
-                   @click="setTaskCompleted(task)"></i>
+                   @click="toggleTaskCompleted(task)"></i>
             </td>
             <td class="task-name"><strong>{{ task.name }}</strong></td>
             <td>
@@ -43,8 +43,8 @@
       }
     },
     methods: {
-      async setTaskCompleted (task) {
-        await this.$store.dispatch('setTaskCompleted', task)
+      async toggleTaskCompleted (task) {
+        await this.$store.dispatch('toggleTaskCompleted', task)
       }
     }
   }
