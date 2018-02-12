@@ -33,7 +33,6 @@
         if (this.name.length > 0) {
           await this.$store.dispatch('addTask', task)
         } else {
-          ev.target.classList.add('is-danger')
           this.message = 'Your task cannot be empty.'
         }
 
