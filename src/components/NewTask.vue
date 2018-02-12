@@ -7,7 +7,6 @@
             <p class="content has-text-danger has-text-weight-bold">{{ message }}</p>
         </div>
 
-
         <button class="button is-dark" @click="addTask">Add Task</button>
     </div>
 </template>

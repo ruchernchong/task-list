@@ -9,7 +9,7 @@
         </thead>
 
         <tbody>
-        <tr v-for="task in tasks">
+        <tr :key="task.id" v-for="task in tasks">
             <td class="has-text-centered">
                 <i class="fa fa-2x fa-check-circle"
                    :class="[ task.completed ? 'has-text-success' : 'has-text-muted' ]"
