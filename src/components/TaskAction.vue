@@ -1,7 +1,12 @@
 <template>
     <div class="buttons has-addons is-centered">
-        <button class="button is-info is-rounded" @click="editTask(task)"><i class="fa fa-fw fa-edit"></i>Edit</button>
-        <button class="button is-danger is-rounded" @click="deleteTask(task)"><i class="fa fa-fw fa-trash"></i>Delete</button>
+        <button class="button is-info is-rounded" @click="editTask(task)">
+            <i class="fa fa-fw fa-edit"></i>Edit
+        </button>
+
+        <button class="button is-danger is-rounded" @click="deleteTask(task)">
+            <i class="fa fa-fw fa-trash"></i>Delete
+        </button>
     </div>
 </template>
 
