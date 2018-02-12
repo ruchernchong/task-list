@@ -2,9 +2,11 @@
     <div class="box">
         <div class="field">
             <label for="task" class="label">Task</label>
-            <input type="text" id="task" class="input" placeholder="Enter task" v-model="name"
-                   @keyup.enter="addTask">
+            <input type="text" id="task" class="input" :class="{ 'is-success': name.length > 0 }"
+                   placeholder="Enter task" v-model="name" @keyup="notEmpty" @keyup.enter="addTask">
+            <p class="content has-text-danger has-text-weight-bold">{{ message }}</p>
         </div>
+
 
         <button class="button is-dark" @click="addTask">Add Task</button>
     </div>
@@ -15,21 +17,28 @@
     name: 'new-task',
     data () {
       return {
-        name: null
+        name: '',
+        message: null
       }
     },
     methods: {
+      notEmpty () {
+        if (this.name.length > 0) this.message = null
+      },
       async addTask (ev) {
-        ev.preventDefault()
-
         const task = {
           name: this.name,
           completed: false
         }
 
-        await this.$store.dispatch('addTask', task)
+        if (this.name.length > 0) {
+          await this.$store.dispatch('addTask', task)
+        } else {
+          ev.target.classList.add('is-danger')
+          this.message = 'Your task cannot be empty.'
+        }
 
-        this.name = null
+        this.name = ''
       }
     }
   }
