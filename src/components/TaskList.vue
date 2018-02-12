@@ -17,7 +17,7 @@
             </td>
             <td class="task-name"><strong>{{ task.name }}</strong></td>
             <td>
-                <task-action :task="task"/>
+                <task-action :task="task" @editTask="editTask" @deleteTask="deleteTask"/>
             </td>
         </tr>
         </tbody>
@@ -45,6 +45,12 @@
     methods: {
       async toggleTaskCompleted (task) {
         await this.$store.dispatch('toggleTaskCompleted', task)
+      },
+      editTask (task) {
+
+      },
+      deleteTask (task) {
+
       }
     }
   }
