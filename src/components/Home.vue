@@ -33,15 +33,9 @@
     data () {
       return {
         tags: [
-          {
-            name: 'All'
-          },
-          {
-            name: 'Completed'
-          },
-          {
-            name: 'Todo'
-          }
+          {name: 'All'},
+          {name: 'Completed'},
+          {name: 'Todo'}
         ]
       }
     }
