@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <button class="button navbar-burger" :class="{ 'is-active': isActive }" @click="isActive = !isActive">
                 <span></span>
