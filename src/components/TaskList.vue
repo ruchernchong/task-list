@@ -1,31 +1,34 @@
 <template>
-    <table class="table is-fullwidth">
-        <thead>
-        <tr>
-            <th>Status</th>
-            <th>Task</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
+    <div class="section">
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <th>Status</th>
+                <th>Task</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
 
-        <tbody>
-        <tr :key="task.id" v-for="task in tasks">
-            <td class="has-text-centered">
-                <i class="fa fa-2x fa-check-circle"
-                   :class="[ task.completed ? 'has-text-success' : 'has-text-muted' ]"
-                   @click="toggleTaskCompleted(task)"></i>
-            </td>
-            <td class="task-name"><strong>{{ task.name }}</strong></td>
-            <td>
-                <task-action :task="task" @editTask="editTask" @deleteTask="deleteTask"/>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+            <tbody>
+            <tr :class="{ 'is-completed': task.completed }" :key="task.id" v-for="task in tasks">
+                <td class="has-text-centered">
+                    <i class="fa fa-2x fa-check-circle"
+                       :class="[ task.completed ? 'has-text-success' : 'has-text-muted' ]"
+                       @click="toggleTaskCompleted(task)"></i>
+                </td>
+                <td class="task-name" :class="{ 'is-completed': task.completed }"><strong>{{ task.name }}</strong></td>
+                <td>
+                    <task-action :task="task" @editTask="editTask" @openDialogModal="openDialogModal(task)"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <dialog-modal :key="isActive" :isActive="isActive" :task="task" @deleteTask="deleteTask"
                           @closeDialogModal="closeDialogModal"/>
         </transition>
+    </div>
 </template>
 
 <script>
@@ -81,8 +84,18 @@
         text-align: center;
     }
 
+    tr {
+        &.is-completed {
+            background-color: rgba(204, 204, 204, 0.5);
+        }
+    }
+
     td {
         vertical-align: middle;
+
+        &.is-completed {
+            text-decoration: line-through;
+        }
 
         &.task-name {
             cursor: pointer;

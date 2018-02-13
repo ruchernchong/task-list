@@ -1,5 +1,5 @@
 <template>
-    <div class="buttons has-addons is-centered">
+    <div class="buttons has-addons is-centered" :class="{ 'is-completed': task.completed }">
         <button class="button is-info is-rounded" @click="editTask(task)">
             <i class="fa fa-fw fa-edit"></i>Edit
         </button>
@@ -30,6 +30,8 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    .is-completed {
+        opacity: 0.5;
+    }
 </style>
