@@ -49,8 +49,8 @@
       editTask (task) {
 
       },
-      deleteTask (task) {
-
+      async deleteTask (task) {
+        await this.$store.dispatch('deleteTask', task)
       }
     }
   }

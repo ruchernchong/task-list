@@ -25,10 +25,15 @@ export default new Vuex.Store({
     addTask (state, task) {
       state.tasks.push(task)
     },
-    toggleTaskCompleted (state, task) {
-      const selectedTask = state.tasks[task.id - 1]
+    deleteTask (state, task) {
+      const index = state.tasks.indexOf(task)
 
-      selectedTask.completed = !selectedTask.completed
+      state.tasks.splice(index, 1)
+    },
+    toggleTaskCompleted (state, task) {
+      const index = state.tasks.indexOf(task)
+
+      state.tasks[index].completed = !state.tasks[index].completed
     },
     setQuery (state, query) {
       state.query = query
@@ -37,6 +42,9 @@ export default new Vuex.Store({
   actions: {
     addTask ({commit}, task) {
       commit('addTask', task)
+    },
+    deleteTask ({commit}, task) {
+      commit('deleteTask', task)
     },
     toggleTaskCompleted ({commit}, task) {
       commit('toggleTaskCompleted', task)
