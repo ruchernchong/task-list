@@ -1,11 +1,11 @@
 import { createLocalVue, shallow } from '@vue/test-utils'
 import Vuex from 'vuex'
-import NewTask from '@/components/NewTask'
+import TaskAdd from '@/components/TaskAdd'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-describe('NewTask', () => {
+describe('TaskAdd', () => {
   let wrapper
 
   let actions
@@ -21,7 +21,7 @@ describe('NewTask', () => {
       actions
     })
 
-    wrapper = shallow(NewTask, {
+    wrapper = shallow(TaskAdd, {
       store, localVue
     })
   })

@@ -13,7 +13,7 @@
 
 <script>
   export default {
-    name: 'new-task',
+    name: 'task-add',
     data () {
       return {
         name: '',
@@ -24,7 +24,7 @@
       notEmpty () {
         if (this.name.length > 0) this.message = null
       },
-      async addTask (ev) {
+      async addTask () {
         const task = {
           name: this.name,
           completed: false
@@ -41,7 +41,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-</style>

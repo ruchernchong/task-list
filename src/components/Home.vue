@@ -13,7 +13,7 @@
                 <!--</div>-->
 
                 <task-list/>
-                <new-task/>
+                <task-add/>
             </div>
         </div>
     </section>
@@ -23,12 +23,12 @@
   import SearchTask from '@/components/SearchTask'
   import TaskTag from '@/components/TaskTag'
   import TaskList from '@/components/TaskList'
-  import NewTask from '@/components/NewTask'
+  import TaskAdd from '@/components/TaskAdd'
 
   export default {
     name: 'home',
     components: {
-      SearchTask, TaskTag, TaskList, NewTask
+      MessageBox, SearchTask, TaskTag, TaskList, TaskAdd
     },
     data () {
       return {
