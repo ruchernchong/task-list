@@ -24,7 +24,7 @@
         this.$emit('editTask', task)
       },
       deleteTask (task) {
-        this.$emit('deleteTask', task)
+        this.$emit('openDialogModal', task)
       }
     }
   }

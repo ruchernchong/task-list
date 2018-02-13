@@ -22,16 +22,27 @@
         </tr>
         </tbody>
     </table>
+        <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+            <dialog-modal :key="isActive" :isActive="isActive" :task="task" @deleteTask="deleteTask"
+                          @closeDialogModal="closeDialogModal"/>
+        </transition>
 </template>
 
 <script>
   import { mapState } from 'vuex'
   import TaskAction from '@/components/TaskAction'
+  import DialogModal from '@/components/DialogModal'
 
   export default {
     name: 'task-list',
     components: {
-      TaskAction
+      TaskAction, DialogModal
+    },
+    data () {
+      return {
+        isActive: false,
+        task: {}
+      }
     },
     computed: {
       ...mapState(['query']),
@@ -51,6 +62,15 @@
       },
       async deleteTask (task) {
         await this.$store.dispatch('deleteTask', task)
+        this.closeDialogModal()
+      },
+      openDialogModal (task) {
+        this.task = task
+        this.isActive = true
+      },
+      closeDialogModal () {
+        this.task = {}
+        this.isActive = false
       }
     }
   }
