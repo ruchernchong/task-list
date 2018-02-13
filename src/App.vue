@@ -1,9 +1,11 @@
 <template>
     <div id="app">
         <header-component/>
+
         <transition enter-active-class="animated fadeIn">
             <router-view/>
         </transition>
+
         <footer-component/>
     </div>
 </template>

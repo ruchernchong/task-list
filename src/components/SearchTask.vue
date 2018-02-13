@@ -1,9 +1,9 @@
 <template>
     <div class="field">
-        <p class="control has-icons-left">
+        <div class="control has-icons-left">
             <span class="icon is-left"><i class="fa fa-fw fa-search"></i></span>
             <input type="search" class="input" placeholder="Search tasks" @keyup="setQuery"/>
-        </p>
+        </div>
     </div>
 </template>
 
