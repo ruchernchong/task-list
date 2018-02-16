@@ -3,7 +3,7 @@
         <div class="field">
             <label for="task" class="label">Task</label>
             <input type="text" id="task" class="input" :class="{ 'is-success': name.length > 0 }"
-                   placeholder="Enter task" v-model="name" @keyup="notEmpty" @keyup.enter="addTask">
+                   placeholder="Enter task" v-model="name" @keyup.enter="addTask">
             <p class="content has-text-danger has-text-weight-bold">{{ message }}</p>
         </div>
 
@@ -21,9 +21,9 @@
       }
     },
     methods: {
-      notEmpty () {
-        if (this.name.length > 0) this.message = null
-      },
+      // notEmpty () {
+      //   if (this.name.length > 0) this.message = null
+      // },
       async addTask () {
         const task = {
           name: this.name,

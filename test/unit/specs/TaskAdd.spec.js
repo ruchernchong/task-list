@@ -31,7 +31,17 @@ describe('TaskAdd', () => {
     input.element.value = 'Task 1'
     input.trigger('keyup')
 
+    expect(wrapper.vm.name).toBe(input.element.value)
     expect(wrapper.vm.message).toBeNull()
+  })
+
+  test('should display a message if task name is empty when enter is pressed', () => {
+    const input = wrapper.find('input')
+    input.element.value = null
+    input.trigger('keyup.enter')
+
+    expect(wrapper.vm.name.length).toBe(0)
+    expect(wrapper.vm.message).toBe('Your task cannot be empty.')
   })
 
   test('add task when button is clicked', () => {
