@@ -1,6 +1,7 @@
 import { createLocalVue, shallow } from '@vue/test-utils'
 import Vuex from 'vuex'
 import TaskList from '@/components/TaskList'
+import TaskAdd from '@/components/TaskAdd'
 import TaskAction from '@/components/TaskAction'
 import DialogModal from '@/components/DialogModal'
 
@@ -19,6 +20,7 @@ describe('TaskList', () => {
     }
 
     actions = {
+      addTask: jest.fn(),
       deleteTask: jest.fn(),
       toggleTaskCompleted: jest.fn()
     }

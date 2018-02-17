@@ -21,9 +21,7 @@
 
   export default {
     name: 'footer-component',
-    components: {
-      Logo
-    },
+    components: {Logo},
     computed: {
       ...mapState(['links'])
     }

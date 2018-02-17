@@ -21,9 +21,6 @@
       }
     },
     methods: {
-      // notEmpty () {
-      //   if (this.name.length > 0) this.message = null
-      // },
       async addTask () {
         const task = {
           name: this.name,

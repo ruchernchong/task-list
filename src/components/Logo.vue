@@ -1,5 +1,7 @@
 <template>
-    <a :href="link.url" target="_blank" rel="noopener"><img :src="require(`@/assets/logos/${logo}.png`)"/></a>
+    <a :href="link.url" target="_blank" rel="noopener">
+        <img :src="require(`@/assets/logos/${this.link.name.toLowerCase().replace(' ', '-')}.png`)"/>
+    </a>
 </template>
 
 <script>
@@ -7,11 +9,6 @@
     name: 'logo',
     props: {
       link: Object
-    },
-    computed: {
-      logo () {
-        return this.link.name.toLowerCase().replace(' ', '-')
-      }
     }
   }
 </script>
