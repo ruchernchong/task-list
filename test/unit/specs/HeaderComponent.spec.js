@@ -12,7 +12,9 @@ describe('HeaderComponent', () => {
 
   beforeEach(() => {
     wrapper = shallow(HeaderComponent, {
-      store, localVue
+      stubs: ['router-link'],
+      store,
+      localVue
     })
   })
 
