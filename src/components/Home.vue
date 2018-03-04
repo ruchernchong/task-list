@@ -3,7 +3,7 @@
         <div class="hero-body">
             <div class="container">
                 <transition enter-active-class="animated flipInX">
-                    <message-box :key="message.content" :message="message" v-if="Object.keys(message).length > 0"/>
+                    <notification :key="message.content" :message="message" v-if="Object.keys(message).length > 0"/>
                 </transition>
 
                 <h1 class="title">Task list</h1>
@@ -25,7 +25,7 @@
 
 <script>
   import { mapState } from 'vuex'
-  import MessageBox from '@/components/MessageBox'
+  import Notification from '@/components/Notification'
   import SearchTask from '@/components/SearchTask'
   import TaskTag from '@/components/TaskTag'
   import TaskList from '@/components/TaskList'
@@ -34,7 +34,7 @@
   export default {
     name: 'home',
     components: {
-      MessageBox, SearchTask, TaskTag, TaskList, TaskAdd
+      Notification, SearchTask, TaskTag, TaskList, TaskAdd
     },
     computed: {
       ...mapState(['message'])
