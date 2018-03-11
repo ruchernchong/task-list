@@ -11,8 +11,8 @@
   export default {
     name: 'search-task',
     methods: {
-      async setQuery (ev) {
-        await this.$store.dispatch('setQuery', ev.target.value.toLowerCase())
+      setQuery (ev) {
+        this.$store.dispatch('setQuery', ev.target.value.toLowerCase())
       }
     }
   }
