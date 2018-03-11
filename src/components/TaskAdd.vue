@@ -21,14 +21,14 @@
       }
     },
     methods: {
-      async addTask () {
+      addTask () {
         const task = {
           name: this.name,
           completed: false
         }
 
         if (this.name.length > 0) {
-          await this.$store.dispatch('addTask', task)
+          this.$store.dispatch('addTask', task)
         } else {
           this.message = 'Your task cannot be empty.'
         }

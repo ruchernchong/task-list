@@ -59,14 +59,14 @@
       }
     },
     methods: {
-      async toggleTaskCompleted (task) {
-        await this.$store.dispatch('toggleTaskCompleted', task)
+       toggleTaskCompleted (task) {
+         this.$store.dispatch('toggleTaskCompleted', task)
       },
       editTask (task) {
 
       },
-      async deleteTask (task) {
-        await this.$store.dispatch('deleteTask', task)
+       deleteTask (task) {
+         this.$store.dispatch('deleteTask', task)
         this.closeDialogModal()
       },
       openDialogModal (task) {

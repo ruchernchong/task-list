@@ -37,8 +37,8 @@
       confirmDelete (task) {
         this.$emit('deleteTask', task)
       },
-      async cancel () {
-        await this.closeDialogModal()
+       cancel () {
+         this.closeDialogModal()
       },
       closeDialogModal () {
         this.$emit('closeDialogModal')
