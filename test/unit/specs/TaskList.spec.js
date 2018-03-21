@@ -38,9 +38,7 @@ describe('TaskList', () => {
     }
 
     wrapper = shallow(TaskList, {
-      store,
-      localVue,
-      computed
+      store, localVue, computed
     })
   })
 
@@ -80,6 +78,10 @@ describe('TaskList', () => {
     wrapper.findAll('.fa-check-circle').at(0).trigger('click')
 
     await expect(actions.toggleTaskCompleted).toHaveBeenCalled()
+  })
+
+  test('should edit task', () => {
+    wrapper.findAll(TaskAction).at(0).vm.$emit('editTask')
   })
 
   test('should delete task when delete button is clicked', async () => {
