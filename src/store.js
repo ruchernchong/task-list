@@ -7,17 +7,17 @@ export default new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   state: {
     navs: [
-      {name: 'Home', link: '/'},
-      {name: 'About', link: '/about'}
+      { name: 'Home', link: '/' },
+      { name: 'About', link: '/about' }
     ],
     links: [
-      {name: 'Github', url: 'https://github.com/ruchern'},
-      {name: 'Stack Overflow', url: 'https://stackoverflow.com/users/4031163/ru-chern-chong'}
+      { name: 'Github', url: 'https://github.com/ruchern' },
+      { name: 'Stack Overflow', url: 'https://stackoverflow.com/users/4031163/ru-chern-chong' }
     ],
     tasks: [
-      {id: 1, name: 'Create a Vue demo for portfolio', completed: true},
-      {id: 2, name: 'Add tests to the demo', completed: false},
-      {id: 3, name: 'Add CircleCI Continuous Integration (CI)', completed: false}
+      { id: 1, name: 'Create a Vue demo for portfolio', completed: true },
+      { id: 2, name: 'Add tests to the demo', completed: false },
+      { id: 3, name: 'Add CircleCI Continuous Integration (CI)', completed: false }
     ],
     message: {},
     query: null
@@ -49,16 +49,16 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    addTask ({commit}, task) {
+    addTask ({ commit }, task) {
       commit('addTask', task)
     },
-    deleteTask ({commit}, task) {
+    deleteTask ({ commit }, task) {
       commit('deleteTask', task)
     },
-    toggleTaskCompleted ({commit}, task) {
+    toggleTaskCompleted ({ commit }, task) {
       commit('toggleTaskCompleted', task)
     },
-    setQuery ({commit}, query) {
+    setQuery ({ commit }, query) {
       commit('setQuery', query)
     }
   }

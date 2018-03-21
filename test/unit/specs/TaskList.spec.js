@@ -1,7 +1,6 @@
 import { createLocalVue, shallow } from '@vue/test-utils'
 import Vuex from 'vuex'
 import TaskList from '@/components/TaskList'
-import TaskAdd from '@/components/TaskAdd'
 import TaskAction from '@/components/TaskAction'
 import DialogModal from '@/components/DialogModal'
 
@@ -14,7 +13,7 @@ describe('TaskList', () => {
   beforeEach(() => {
     state = {
       tasks: [
-        {id: 1, name: 'First task', completed: true}, {id: 2, name: 'Second task', completed: false}
+        { id: 1, name: 'First task', completed: true }, { id: 2, name: 'Second task', completed: false }
       ],
       query: null
     }
@@ -47,7 +46,7 @@ describe('TaskList', () => {
 
   test('should not have filtered tasks if query is null', () => {
     const task = [
-      {id: 1, name: 'First task', completed: true}, {id: 2, name: 'Second task', completed: false}
+      { id: 1, name: 'First task', completed: true }, { id: 2, name: 'Second task', completed: false }
     ]
 
     wrapper = shallow(TaskList, {
@@ -63,7 +62,7 @@ describe('TaskList', () => {
 
   test('filtered tasks should have at least one match', () => {
     const task = [
-      {id: 1, name: 'First task', completed: true}
+      { id: 1, name: 'First task', completed: true }
     ]
 
     wrapper = shallow(TaskList, {
@@ -93,7 +92,7 @@ describe('TaskList', () => {
   })
 
   test('should open dialog modal when button is clicked', () => {
-    const task = {id: 1, name: 'First task', completed: true}
+    const task = { id: 1, name: 'First task', completed: true }
 
     wrapper.findAll(TaskAction).at(0).vm.$emit('openDialogModal', task)
 
