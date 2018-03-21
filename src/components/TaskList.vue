@@ -61,13 +61,13 @@
     },
     methods: {
       toggleTaskCompleted (task) {
-        this.$store.dispatch('toggleTaskCompleted', task)
+        this.$store.commit('toggleTaskCompleted', task)
       },
       editTask (task) {
 
       },
       deleteTask (task) {
-        this.$store.dispatch('deleteTask', task)
+        this.$store.commit('deleteTask', task)
         this.closeDialogModal()
       },
       openDialogModal (task) {

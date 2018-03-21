@@ -6,18 +6,15 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('SearchTask', () => {
-  let wrapper
-
-  let store
-  let actions
+  let wrapper, store, mutations
 
   beforeEach(() => {
-    actions = {
+    mutations = {
       setQuery: jest.fn()
     }
 
     store = new Vuex.Store({
-      actions
+      mutations
     })
 
     wrapper = shallow(SearchTask, {

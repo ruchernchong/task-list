@@ -12,7 +12,7 @@
     name: 'search-task',
     methods: {
       setQuery (ev) {
-        this.$store.dispatch('setQuery', ev.target.value.toLowerCase())
+        this.$store.commit('setQuery', ev.target.value.toLowerCase())
       }
     }
   }

@@ -8,7 +8,7 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('TaskList', () => {
-  let wrapper, store, state, actions, computed
+  let wrapper, store, state, mutations, computed
 
   beforeEach(() => {
     state = {
@@ -18,7 +18,7 @@ describe('TaskList', () => {
       query: null
     }
 
-    actions = {
+    mutations = {
       addTask: jest.fn(),
       deleteTask: jest.fn(),
       toggleTaskCompleted: jest.fn()
@@ -26,7 +26,7 @@ describe('TaskList', () => {
 
     store = new Vuex.Store({
       state,
-      actions
+      mutations
     })
 
     computed = {

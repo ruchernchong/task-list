@@ -33,6 +33,7 @@ export default new Vuex.Store({
     },
     deleteTask (state, task) {
       const index = state.tasks.indexOf(task)
+
       state.tasks.splice(index, 1)
       state.message = {
         title: 'Task deleted!',
