@@ -8,7 +8,7 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('TaskList', () => {
-  let wrapper, store, state, actions, computed
+  let wrapper, store, state, mutations, computed
 
   beforeEach(() => {
     state = {
@@ -18,7 +18,7 @@ describe('TaskList', () => {
       query: null
     }
 
-    actions = {
+    mutations = {
       addTask: jest.fn(),
       deleteTask: jest.fn(),
       toggleTaskCompleted: jest.fn()
@@ -26,7 +26,7 @@ describe('TaskList', () => {
 
     store = new Vuex.Store({
       state,
-      actions
+      mutations
     })
 
     computed = {
@@ -74,20 +74,20 @@ describe('TaskList', () => {
     expect(wrapper.vm.tasks).toEqual(task)
   })
 
-  test('completed status should be toggled when clicked', async () => {
+  test('completed status should be toggled when clicked', () => {
     wrapper.findAll('.fa-check-circle').at(0).trigger('click')
 
-    await expect(actions.toggleTaskCompleted).toHaveBeenCalled()
+    expect(mutations.toggleTaskCompleted).toHaveBeenCalled()
   })
 
   test('should edit task', () => {
     wrapper.findAll(TaskAction).at(0).vm.$emit('editTask')
   })
 
-  test('should delete task when delete button is clicked', async () => {
+  test('should delete task when delete button is clicked', () => {
     wrapper.find(DialogModal).vm.$emit('deleteTask')
 
-    await expect(actions.deleteTask).toHaveBeenCalled()
+    expect(mutations.deleteTask).toHaveBeenCalled()
 
     expect(wrapper.vm.task).toEqual({})
     expect(wrapper.vm.isActive).toBeFalsy()

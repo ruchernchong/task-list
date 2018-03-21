@@ -6,19 +6,17 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('TaskAdd', () => {
-  let wrapper
-
-  let actions
-  let store
+  let wrapper, store, state, mutations
 
   beforeEach(() => {
-    actions = {
+    state = {}
+
+    mutations = {
       addTask: jest.fn()
     }
 
     store = new Vuex.Store({
-      state: {},
-      actions
+      state, mutations
     })
 
     wrapper = shallow(TaskAdd, {
@@ -51,7 +49,7 @@ describe('TaskAdd', () => {
 
     wrapper.find('button').trigger('click')
 
-    expect(actions.addTask).toHaveBeenCalled()
+    expect(mutations.addTask).toHaveBeenCalled()
   })
 
   test('should display a message if task name is empty when button is clicked', () => {

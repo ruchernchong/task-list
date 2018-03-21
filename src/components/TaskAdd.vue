@@ -28,7 +28,7 @@
         }
 
         if (this.name.length > 0) {
-          this.$store.dispatch('addTask', task)
+          this.$store.commit('addTask', task)
         } else {
           this.message = 'Your task cannot be empty.'
         }

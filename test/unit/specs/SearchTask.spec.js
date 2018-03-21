@@ -6,18 +6,15 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('SearchTask', () => {
-  let wrapper
-
-  let store
-  let actions
+  let wrapper, store, mutations
 
   beforeEach(() => {
-    actions = {
+    mutations = {
       setQuery: jest.fn()
     }
 
     store = new Vuex.Store({
-      actions
+      mutations
     })
 
     wrapper = shallow(SearchTask, {
@@ -25,11 +22,11 @@ describe('SearchTask', () => {
     })
   })
 
-  test('correct query string', async () => {
+  test('correct query string', () => {
     const input = wrapper.find('input[type=search]')
     input.element.value = 'New task'
     input.trigger('keyup')
 
-    await expect(actions.setQuery).toHaveBeenCalled()
+    expect(mutations.setQuery).toHaveBeenCalled()
   })
 })
