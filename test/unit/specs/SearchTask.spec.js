@@ -25,11 +25,11 @@ describe('SearchTask', () => {
     })
   })
 
-  test('correct query string', async () => {
+  test('correct query string', () => {
     const input = wrapper.find('input[type=search]')
     input.element.value = 'New task'
     input.trigger('keyup')
 
-    await expect(actions.setQuery).toHaveBeenCalled()
+    expect(mutations.setQuery).toHaveBeenCalled()
   })
 })
