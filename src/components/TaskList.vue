@@ -17,7 +17,8 @@
                            :class="[ task.completed ? 'has-text-success' : 'has-text-muted' ]"
                            @click="toggleTaskCompleted(task)"></i>
                     </td>
-                    <td class="task-name" :class="{ 'is-completed': task.completed }"><strong>{{ task.name }}</strong></td>
+                    <td class="task-name" :class="{ 'is-completed': task.completed }"><strong>{{ task.name }}</strong>
+                    </td>
                     <td>
                         <task-action :task="task" @editTask="editTask" @openDialogModal="openDialogModal(task)"/>
                     </td>
@@ -59,14 +60,14 @@
       }
     },
     methods: {
-       toggleTaskCompleted (task) {
-         this.$store.dispatch('toggleTaskCompleted', task)
+      toggleTaskCompleted (task) {
+        this.$store.dispatch('toggleTaskCompleted', task)
       },
       editTask (task) {
 
       },
-       deleteTask (task) {
-         this.$store.dispatch('deleteTask', task)
+      deleteTask (task) {
+        this.$store.dispatch('deleteTask', task)
         this.closeDialogModal()
       },
       openDialogModal (task) {
