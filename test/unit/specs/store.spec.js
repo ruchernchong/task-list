@@ -38,7 +38,7 @@ describe('store', () => {
     expect(store.state.tasks[0].completed).toBe(false)
   })
 
-  test('should store search query in the store', () => {
+  test('should save the search query in the store', () => {
     expect(store.state.query).toBeNull()
 
     const query = 'Hello World!'
