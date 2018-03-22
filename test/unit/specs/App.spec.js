@@ -11,7 +11,9 @@ describe('App', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(App)
+    wrapper = shallow(App, {
+      stubs: ['router-view']
+    })
   })
 
   test('should contain Header Component', () => {
