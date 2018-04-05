@@ -25,6 +25,7 @@ export default new Vuex.Store({
   mutations: {
     addTask (state, task) {
       state.tasks.push(task)
+
       state.message = {
         title: 'Task added!',
         style: 'success',
@@ -35,6 +36,7 @@ export default new Vuex.Store({
       const index = state.tasks.indexOf(task)
 
       state.tasks.splice(index, 1)
+
       state.message = {
         title: 'Task deleted!',
         style: 'danger',
