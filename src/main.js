@@ -2,10 +2,8 @@ import Vue from 'vue'
 import App from '@/App'
 import store from '@/store'
 import router from '@/router'
-import fontawesome from '@fortawesome/fontawesome'
-import solid from '@fortawesome/fontawesome-free-solid'
 
-fontawesome.library.add(solid)
+require('font-awesome/scss/font-awesome.scss')
 
 Vue.config.productionTip = false
 
