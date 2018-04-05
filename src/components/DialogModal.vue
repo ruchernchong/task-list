@@ -15,10 +15,10 @@
             <footer class="modal-card-foot is-paddingless">
                 <div class="column has-text-centered is-paddingless">
                     <a class="icon is-large has-text-success" title="Yes" @click="confirmDelete(task)">
-                        <i class="fas fa-2x fa-check-circle"></i>
+                        <i class="fa fa-2x fa-check-circle"></i>
                     </a>
                     <a class="icon is-large has-text-danger" title="No" @click="cancel">
-                        <i class="fas fa-2x fa-times-circle"></i>
+                        <i class="fa fa-2x fa-times-circle"></i>
                     </a>
                 </div>
             </footer>

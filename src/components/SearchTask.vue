@@ -1,7 +1,7 @@
 <template>
     <div class="field">
         <div class="control has-icons-left">
-            <span class="icon is-left"><i class="fas fa-search"></i></span>
+            <span class="icon is-left"><i class="fa fa-fw fa-search"></i></span>
             <input type="search" class="input" placeholder="Search tasks" @keyup="setQuery"/>
         </div>
     </div>
