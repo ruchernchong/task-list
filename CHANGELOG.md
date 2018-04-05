@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v1.0.2
 - Revert Font Awesome back to `v4` from `v5` due to a bug o with click not working properly with SVGs
 
 ## v1.0.1
