@@ -1,11 +1,11 @@
-import { shallow } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import About from '@/components/About'
 
 describe('About', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(About)
+    wrapper = shallowMount(About)
   })
 
   test('should render correct title', () => {

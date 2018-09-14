@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
 import TaskAdd from '@/components/TaskAdd'
 
@@ -19,7 +19,7 @@ describe('TaskAdd', () => {
       state, mutations
     })
 
-    wrapper = shallow(TaskAdd, {
+    wrapper = shallowMount(TaskAdd, {
       store, localVue
     })
   })

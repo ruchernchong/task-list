@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
 import FooterComponent from '@/components/FooterComponent'
 import store from '@/store'
@@ -10,7 +10,7 @@ describe('FooterComponent', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(FooterComponent, {
+    wrapper = shallowMount(FooterComponent, {
       store, localVue
     })
   })

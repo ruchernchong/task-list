@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
 import SearchTask from '@/components/SearchTask'
 
@@ -17,7 +17,7 @@ describe('SearchTask', () => {
       mutations
     })
 
-    wrapper = shallow(SearchTask, {
+    wrapper = shallowMount(SearchTask, {
       store, localVue
     })
   })

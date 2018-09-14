@@ -1,4 +1,4 @@
-import { shallow } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import DialogModal from '@/components/DialogModal'
 
 describe('DialogModal', () => {
@@ -9,7 +9,7 @@ describe('DialogModal', () => {
   beforeEach(() => {
     task = {}
 
-    wrapper = shallow(DialogModal, {
+    wrapper = shallowMount(DialogModal, {
       propsData: {
         isActive: true,
         task

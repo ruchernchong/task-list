@@ -1,11 +1,11 @@
-import { shallow } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import TaskAction from '@/components/TaskAction'
 
 describe('TaskAction', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(TaskAction, {
+    wrapper = shallowMount(TaskAction, {
       propsData: {
         task: {}
       }
