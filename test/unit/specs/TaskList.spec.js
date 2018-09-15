@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
 import TaskList from '@/components/TaskList'
 import TaskAction from '@/components/TaskAction'
@@ -37,7 +37,7 @@ describe('TaskList', () => {
       }
     }
 
-    wrapper = shallow(TaskList, {
+    wrapper = shallowMount(TaskList, {
       store, localVue, computed
     })
   })
@@ -47,7 +47,7 @@ describe('TaskList', () => {
       { id: 1, name: 'First task', completed: true }, { id: 2, name: 'Second task', completed: false }
     ]
 
-    wrapper = shallow(TaskList, {
+    wrapper = shallowMount(TaskList, {
       store,
       localVue,
       computed: {
@@ -63,7 +63,7 @@ describe('TaskList', () => {
       { id: 1, name: 'First task', completed: true }
     ]
 
-    wrapper = shallow(TaskList, {
+    wrapper = shallowMount(TaskList, {
       store,
       localVue,
       computed: {

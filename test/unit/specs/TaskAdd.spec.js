@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
 import TaskAdd from '@/components/TaskAdd'
 
@@ -19,7 +19,7 @@ describe('TaskAdd', () => {
       state, mutations
     })
 
-    wrapper = shallow(TaskAdd, {
+    wrapper = shallowMount(TaskAdd, {
       store, localVue
     })
   })
@@ -27,7 +27,7 @@ describe('TaskAdd', () => {
   test('message should be null when task name is not empty', () => {
     const input = wrapper.find('input')
     input.element.value = 'Task 1'
-    input.trigger('change')
+    input.trigger('input')
 
     expect(wrapper.vm.name).toBe(input.element.value)
     expect(wrapper.vm.message).toBeNull()
@@ -45,7 +45,7 @@ describe('TaskAdd', () => {
   test('add task when button is clicked', () => {
     const input = wrapper.find('input')
     input.element.value = 'Task 1'
-    input.trigger('change')
+    input.trigger('input')
 
     wrapper.find('button').trigger('click')
 
