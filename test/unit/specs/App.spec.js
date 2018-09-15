@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import VueRouter from 'vue-router'
 import App from '@/App'
 import HeaderComponent from '@/components/HeaderComponent'
@@ -11,7 +11,7 @@ describe('App', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(App, {
+    wrapper = shallowMount(App, {
       stubs: ['router-view']
     })
   })

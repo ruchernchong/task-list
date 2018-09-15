@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Home from '@/components/Home'
 
@@ -20,7 +20,7 @@ describe('Home', () => {
       state
     })
 
-    wrapper = shallow(Home, {
+    wrapper = shallowMount(Home, {
       store, localVue
     })
   })

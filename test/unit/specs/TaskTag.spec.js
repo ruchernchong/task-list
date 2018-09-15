@@ -1,11 +1,11 @@
-import { shallow } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import TaskTag from '@/components/TaskTag'
 
 describe('TaskTag', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(TaskTag, {
+    wrapper = shallowMount(TaskTag, {
       propsData: {
         tag: {}
       }
