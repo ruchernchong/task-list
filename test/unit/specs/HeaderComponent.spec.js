@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import HeaderComponent from '@/components/HeaderComponent'
@@ -11,7 +11,7 @@ describe('HeaderComponent', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(HeaderComponent, {
+    wrapper = shallowMount(HeaderComponent, {
       stubs: ['router-link'],
       store,
       localVue
@@ -27,7 +27,7 @@ describe('HeaderComponent', () => {
 
     const router = new VueRouter()
 
-    const wrapper = shallow(HeaderComponent, {
+    const wrapper = shallowMount(HeaderComponent, {
       store, router, localVue
     })
 
