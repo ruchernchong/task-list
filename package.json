@@ -92,11 +92,12 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && yarn unit"
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.{vue,js}": [
+      "prettier --single-quotes --write",
       "eslint --fix",
       "git add"
     ]
