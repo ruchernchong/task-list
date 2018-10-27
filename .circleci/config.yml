@@ -16,20 +16,11 @@ jobs:
             - node_modules/
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
-  test:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - run: yarn global add codecov
-      - run: yarn
-      - run: yarn test
       - store_test_results:
-        path: test/unit
+          path: test/unit
 
 workflows:
   version: 2
     build_and_test:
       jobs:
         - build
-        - test
