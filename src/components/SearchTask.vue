@@ -8,16 +8,12 @@
 </template>
 
 <script>
-  export default {
-    name: 'search-task',
-    methods: {
-      setQuery (ev) {
-        this.$store.commit('setQuery', ev.target.value.toLowerCase())
-      }
+export default {
+  name: 'SearchTask',
+  methods: {
+    setQuery (ev) {
+      this.$store.commit('setQuery', ev.target.value.toLowerCase())
     }
   }
+}
 </script>
-
-<style scoped>
-
-</style>
