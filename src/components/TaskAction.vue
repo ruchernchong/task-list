@@ -11,27 +11,27 @@
 </template>
 
 <script>
-  export default {
-    name: 'task-action',
-    props: {
-      task: Object
+export default {
+  name: 'TaskAction',
+  props: {
+    task: Object
+  },
+  data () {
+    return {}
+  },
+  methods: {
+    editTask (task) {
+      this.$emit('editTask', task)
     },
-    data () {
-      return {}
-    },
-    methods: {
-      editTask (task) {
-        this.$emit('editTask', task)
-      },
-      deleteTask (task) {
-        this.$emit('openDialogModal', task)
-      }
+    deleteTask (task) {
+      this.$emit('openDialogModal', task)
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-    .is-completed {
-        opacity: 0.5;
-    }
+.is-completed {
+  opacity: 0.5;
+}
 </style>

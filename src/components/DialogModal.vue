@@ -27,26 +27,22 @@
 </template>
 
 <script>
-  export default {
-    name: 'dialog-modal',
-    props: {
-      isActive: Boolean,
-      task: Object
+export default {
+  name: 'DialogModal',
+  props: {
+    isActive: Boolean,
+    task: Object
+  },
+  methods: {
+    confirmDelete (task) {
+      this.$emit('deleteTask', task)
     },
-    methods: {
-      confirmDelete (task) {
-        this.$emit('deleteTask', task)
-      },
-       cancel () {
-         this.closeDialogModal()
-      },
-      closeDialogModal () {
-        this.$emit('closeDialogModal')
-      }
+    cancel () {
+      this.closeDialogModal()
+    },
+    closeDialogModal () {
+      this.$emit('closeDialogModal')
     }
   }
+}
 </script>
-
-<style scoped>
-
-</style>

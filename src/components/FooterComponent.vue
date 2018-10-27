@@ -16,20 +16,20 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
-  import Logo from '@/components/Logo'
+import { mapState } from 'vuex'
+import Logo from '@/components/Logo'
 
-  export default {
-    name: 'footer-component',
-    components: { Logo },
-    computed: {
-      ...mapState(['links'])
-    }
+export default {
+  name: 'FooterComponent',
+  components: { Logo },
+  computed: {
+    ...mapState(['links'])
   }
+}
 </script>
 
 <style lang="scss" scoped>
-    .icon {
-        margin: 15px;
-    }
+.icon {
+  margin: 15px;
+}
 </style>

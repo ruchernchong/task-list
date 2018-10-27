@@ -5,10 +5,10 @@
 </template>
 
 <script>
-  export default {
-    name: 'notification',
-    props: {
-      message: Object
-    }
+export default {
+  name: 'Notification',
+  props: {
+    message: Object
   }
+}
 </script>
