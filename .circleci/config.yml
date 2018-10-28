@@ -10,17 +10,17 @@ jobs:
         - v1-dependencies-{{ checksum "package.json" }}
         - v1-dependencies-
     - run:
-      name: Install pacakges
-      command: yarn
+        name: Install pacakges
+        command: yarn
     - save_cache:
         paths:
         - node_modules/
         key: v1-dependencies-{{ checksum "package.json" }}
     - run:
-      name: Run tests and upload to Codecov
-      command: |
-        yarn test
-        yarn codecov
+        name: Run tests and upload to Codecov
+        command: |
+          yarn test
+          yarn codecov
     - store_test_results:
         path: test/unit
 
