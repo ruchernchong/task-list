@@ -98,7 +98,7 @@
   },
   "lint-staged": {
     "*.{vue,js}": [
-      "prettier --single-quote --no-semi --write",
+      "prettier --single-quote --write",
       "eslint --fix",
       "git add"
     ]

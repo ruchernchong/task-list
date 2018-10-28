@@ -12,29 +12,29 @@
 </template>
 
 <script>
-export default {
-  name: 'TaskAdd',
-  data () {
-    return {
-      name: '',
-      message: null
-    }
-  },
-  methods: {
-    addTask () {
-      const task = {
-        name: this.name,
-        completed: false
+  export default {
+    name: 'TaskAdd',
+    data () {
+      return {
+        name: '',
+        message: null
       }
+    },
+    methods: {
+      addTask () {
+        const task = {
+          name: this.name,
+          completed: false
+        }
 
-      if (this.name.length > 0) {
-        this.$store.commit('addTask', task)
-      } else {
-        this.message = 'Your task cannot be empty.'
+        if (this.name.length > 0) {
+          this.$store.commit('addTask', task)
+        } else {
+          this.message = 'Your task cannot be empty.'
+        }
+
+        this.name = ''
       }
-
-      this.name = ''
     }
   }
-}
 </script>
