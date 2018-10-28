@@ -9,7 +9,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "yarn dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
-    "test": "yarn unit && codecov",
+    "test": "yarn unit",
     "lint": "eslint --ext .js,.vue src test/unit",
     "build": "node build/build.js"
   },
@@ -84,7 +84,8 @@
   },
   "engines": {
     "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+    "npm": ">= 3.0.0",
+    "yarn": ">= 1.10.0"
   },
   "browserslist": [
     "> 1%",
@@ -93,7 +94,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn unit"
+      "pre-commit": "lint-staged && yarn test"
     }
   },
   "lint-staged": {
