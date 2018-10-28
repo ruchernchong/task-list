@@ -20,15 +20,15 @@
           <td class="task-name" :class="{ 'is-completed': task.completed }"><strong>{{ task.name }}</strong>
           </td>
           <td>
-            <task-action :task="task" @editTask="editTask" @openDialogModal="openDialogModal(task)"/>
+            <TaskAction :task="task" @editTask="editTask" @openDialogModal="openDialogModal(task)"/>
           </td>
         </tr>
         </tbody>
       </table>
 
       <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-        <dialog-modal :key="isActive" :isActive="isActive" :task="task" @deleteTask="deleteTask"
-                      @closeDialogModal="closeDialogModal"/>
+        <DialogModal :key="isActive" :isActive="isActive" :task="task" @deleteTask="deleteTask"
+                     @closeDialogModal="closeDialogModal"/>
       </transition>
     </div>
   </div>
