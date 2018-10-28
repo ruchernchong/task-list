@@ -3,12 +3,12 @@
     <div class="hero-body">
       <div class="container">
         <transition enter-active-class="animated flipInX">
-          <notification :key="message.content" :message="message" v-if="Object.keys(message).length > 0"/>
+          <Notification :key="message.content" :message="message" v-if="Object.keys(message).length > 0"/>
         </transition>
 
         <h1 class="title">Task list</h1>
 
-        <search-task/>
+        <SearchTask/>
 
         <!--<div class="content">-->
         <!--<strong>Filter by:</strong>-->
@@ -16,8 +16,8 @@
         <!--<task-tag :key="tag.name" :tag="tag" v-for="tag in tags"/>-->
         <!--</div>-->
 
-        <task-list/>
-        <task-add/>
+        <TaskList/>
+        <TaskAdd/>
       </div>
     </div>
   </section>
