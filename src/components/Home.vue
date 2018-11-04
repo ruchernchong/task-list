@@ -11,9 +11,7 @@
             <div class="card">
               <SearchTask/>
 
-              <div class="card-content">
-                <TaskList/>
-              </div>
+              <TaskList/>
 
               <footer class="card-footer">
                 <TaskAdd/>

@@ -23,11 +23,7 @@ exports[`Home should render the component 1`] = `
           >
             <searchtask-stub />
              
-            <div
-              class="card-content"
-            >
-              <tasklist-stub />
-            </div>
+            <tasklist-stub />
              
             <footer
               class="card-footer"

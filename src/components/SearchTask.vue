@@ -1,19 +1,31 @@
 <template>
-    <div class="field">
-        <div class="control has-icons-left">
-            <span class="icon is-left"><i class="fa fa-fw fa-search"></i></span>
-            <input type="search" class="input" placeholder="Search tasks" @keyup="setQuery"/>
-        </div>
-    </div>
+  <div class="control has-icons-left has-icons-right">
+    <input type="search" class="input is-large" placeholder="Search tasks" @keyup="setQuery"/>
+    <span class="icon is-large is-left">
+        <i class="fa fa-search"></i>
+      </span>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'SearchTask',
   methods: {
-    setQuery (ev) {
-      this.$store.commit('setQuery', ev.target.value.toLowerCase())
+    setQuery (e) {
+      this.$store.commit('setQuery', e.target.value.toLowerCase())
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.field {
+  width: 100%;
+}
+
+.input {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+</style>

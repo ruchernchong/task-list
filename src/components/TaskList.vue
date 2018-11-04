@@ -1,16 +1,7 @@
 <template>
-  <div class="columns">
-    <div class="column">
-      <table class="table is-fullwidth">
-        <thead>
-        <tr>
-          <th>Status</th>
-          <th>Task</th>
-          <th>Actions</th>
-        </tr>
-        </thead>
-
-        <tbody>
+  <div class="columns is-marginless">
+    <div class="column is-paddingless">
+      <table class="table is-fullwidth is-marginless">
         <tr :class="{ 'is-completed': task.completed }" :key="task.id" v-for="task in tasks">
           <td class="has-text-centered">
             <i class="fa fa-2x fa-check-circle"
@@ -23,7 +14,6 @@
             <TaskAction :task="task" @editTask="editTask" @openDialogModal="openDialogModal(task)"/>
           </td>
         </tr>
-        </tbody>
       </table>
 
       <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
