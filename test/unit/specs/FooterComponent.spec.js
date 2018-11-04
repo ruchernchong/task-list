@@ -11,7 +11,8 @@ describe('FooterComponent', () => {
 
   beforeEach(() => {
     wrapper = shallowMount(FooterComponent, {
-      store, localVue
+      store,
+      localVue
     })
   })
 

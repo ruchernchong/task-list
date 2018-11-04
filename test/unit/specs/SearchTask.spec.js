@@ -18,7 +18,8 @@ describe('SearchTask', () => {
     })
 
     wrapper = shallowMount(SearchTask, {
-      store, localVue
+      store,
+      localVue
     })
   })
 
