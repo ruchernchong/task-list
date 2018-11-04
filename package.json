@@ -14,10 +14,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "animate.css": "^3.6.1",
-    "bulma": "^0.7.1",
+    "animate.css": "^3.7.0",
+    "bulma": "^0.7.2",
     "font-awesome": "^4.7.0",
-    "vue": "^2.5.16",
+    "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
