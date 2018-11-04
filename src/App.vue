@@ -25,4 +25,9 @@ export default {
 
 <style lang="scss">
 @import './sass/app.scss';
+
+html,
+body {
+  background-color: #f5f5f5;
+}
 </style>
