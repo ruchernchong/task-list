@@ -10,7 +10,6 @@ describe('store', () => {
     expect(store.state.tasks.length).toBe(3)
 
     const task = {
-      id: 4,
       name: 'Foo',
       completed: false
     }
@@ -24,7 +23,6 @@ describe('store', () => {
     expect(store.state.tasks.length).toBe(4)
 
     const task = {
-      id: 4,
       name: 'Foo',
       completed: false
     }

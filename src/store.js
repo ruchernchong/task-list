@@ -15,13 +15,9 @@ export default new Vuex.Store({
       }
     ],
     tasks: [
-      { id: 1, name: 'Create a Vue demo for portfolio', completed: true },
-      { id: 2, name: 'Add tests to the demo', completed: false },
-      {
-        id: 3,
-        name: 'Add CircleCI Continuous Integration (CI)',
-        completed: false
-      }
+      { name: 'Create a Vue demo for portfolio', completed: true },
+      { name: 'Add tests to the demo', completed: false },
+      { name: 'Add CircleCI Continuous Integration (CI)', completed: false }
     ],
     message: {},
     query: ''
