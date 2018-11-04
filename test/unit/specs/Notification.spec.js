@@ -16,6 +16,9 @@ describe('Notification', () => {
 
   it('should render the component', () => {
     expect(wrapper.element).toMatchSnapshot()
+  })
+
+  it('should render a success notification given the style from message props', () => {
     expect(wrapper.find('div').classes('is-success')).toBeTruthy()
   })
 })
