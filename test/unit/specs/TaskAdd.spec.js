@@ -16,12 +16,18 @@ describe('TaskAdd', () => {
     }
 
     store = new Vuex.Store({
-      state, mutations
+      state,
+      mutations
     })
 
     wrapper = shallowMount(TaskAdd, {
-      store, localVue
+      store,
+      localVue
     })
+  })
+
+  it('should render the component', () => {
+    expect(wrapper.element).toMatchSnapshot()
   })
 
   test('message should be null when task name is not empty', () => {
@@ -46,19 +52,8 @@ describe('TaskAdd', () => {
     const input = wrapper.find('input')
     input.element.value = 'Task 1'
     input.trigger('input')
-
-    wrapper.find('button').trigger('click')
+    input.trigger('keyup.enter')
 
     expect(mutations.addTask).toHaveBeenCalled()
-  })
-
-  test('should display a message if task name is empty when button is clicked', () => {
-    const input = wrapper.find('input')
-    input.element.value = ''
-    input.trigger('input')
-
-    wrapper.find('button').trigger('click')
-
-    expect(wrapper.vm.message).toBe('Your task cannot be empty.')
   })
 })
