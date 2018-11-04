@@ -2,22 +2,31 @@
   <section class="hero is-fullheight">
     <div class="hero-body">
       <div class="container">
-        <transition enter-active-class="animated flipInX">
-          <Notification :key="message.content" :message="message" v-if="Object.keys(message).length > 0"/>
-        </transition>
+        <div class="columns">
+          <div class="column is-half is-offset-one-quarter">
+            <transition enter-active-class="animated flipInX">
+              <Notification :key="message.content" :message="message" v-if="Object.keys(message).length > 0"/>
+            </transition>
 
-        <h1 class="title">Task list</h1>
+            <div class="card">
+              <SearchTask/>
 
-        <SearchTask/>
+              <div class="card-content">
+                <TaskList/>
+              </div>
 
-        <!--<div class="content">-->
-        <!--<strong>Filter by:</strong>-->
+              <footer class="card-footer">
+                <TaskAdd/>
+              </footer>
+            </div>
 
-        <!--<task-tag :key="tag.name" :tag="tag" v-for="tag in tags"/>-->
-        <!--</div>-->
+            <!--<div class="content">-->
+            <!--<strong>Filter by:</strong>-->
 
-        <TaskList/>
-        <TaskAdd/>
+            <!--<task-tag :key="tag.name" :tag="tag" v-for="tag in tags"/>-->
+            <!--</div>-->
+          </div>
+        </div>
       </div>
     </div>
   </section>
