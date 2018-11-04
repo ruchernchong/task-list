@@ -21,11 +21,12 @@ describe('Home', () => {
     })
 
     wrapper = shallowMount(Home, {
-      store, localVue
+      store,
+      localVue
     })
   })
 
-  test('should render correct title', () => {
-    expect(wrapper.find('h1').text()).toBe('Task list')
+  test('should render the component', () => {
+    expect(wrapper.element).toMatchSnapshot()
   })
 })
