@@ -2,8 +2,15 @@
   <div class="box">
     <div class="field">
       <label for="task" class="label">Add Task</label>
-      <input type="text" id="task" class="input" :class="{ 'is-success': name.length > 0 }"
-             placeholder="e.g. Remember to write tests for your project!" v-model="name" @keyup.enter="addTask">
+      <input
+        type="text"
+        id="task"
+        class="input"
+        :class="{ 'is-success': name.length > 0 }"
+        placeholder="e.g. Remember to write tests for your project!"
+        v-model="name"
+        @keyup.enter="addTask"
+      />
       <p class="content has-text-danger has-text-weight-bold">{{ message }}</p>
     </div>
   </div>

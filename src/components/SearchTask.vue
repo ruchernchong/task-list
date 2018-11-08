@@ -1,9 +1,12 @@
 <template>
   <div class="control has-icons-left has-icons-right">
-    <input type="search" class="input is-large" placeholder="Search tasks" @keyup="setQuery"/>
-    <span class="icon is-large is-left">
-        <i class="fa fa-search"></i>
-      </span>
+    <input
+      type="search"
+      class="input is-large"
+      placeholder="Search tasks"
+      @keyup="setQuery"
+    />
+    <span class="icon is-large is-left"> <i class="fa fa-search"></i> </span>
   </div>
 </template>
 

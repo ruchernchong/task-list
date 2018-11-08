@@ -2,23 +2,42 @@
   <div class="columns is-marginless">
     <div class="column is-paddingless">
       <table class="table is-fullwidth is-marginless">
-        <tr :class="{ 'is-completed': task.completed }" :key="task.id" v-for="task in tasks">
+        <tr
+          :class="{ 'is-completed': task.completed }"
+          :key="task.id"
+          v-for="task in tasks"
+        >
           <td class="has-text-centered">
-            <i class="fa fa-2x fa-check-circle"
-               :class="[ task.completed ? 'has-text-success' : 'has-text-muted' ]"
-               @click="toggleTaskCompleted(task)"></i>
+            <i
+              class="fa fa-2x fa-check-circle"
+              :class="[task.completed ? 'has-text-success' : 'has-text-muted']"
+              @click="toggleTaskCompleted(task)"
+            ></i>
           </td>
-          <td class="task-name" :class="{ 'is-completed': task.completed }"><strong>{{ task.name }}</strong>
+          <td class="task-name" :class="{ 'is-completed': task.completed }">
+            <strong>{{ task.name }}</strong>
           </td>
           <td>
-            <TaskAction :task="task" @editTask="editTask" @openDialogModal="openDialogModal(task)"/>
+            <TaskAction
+              :task="task"
+              @editTask="editTask"
+              @openDialogModal="openDialogModal(task)"
+            />
           </td>
         </tr>
       </table>
 
-      <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-        <DialogModal :key="isActive" :isActive="isActive" :task="task" @deleteTask="deleteTask"
-                     @closeDialogModal="closeDialogModal"/>
+      <transition
+        enter-active-class="animated fadeIn"
+        leave-active-class="animated fadeOut"
+      >
+        <DialogModal
+          :key="isActive"
+          :isActive="isActive"
+          :task="task"
+          @deleteTask="deleteTask"
+          @closeDialogModal="closeDialogModal"
+        />
       </transition>
     </div>
   </div>

@@ -5,24 +5,26 @@
         <div class="columns">
           <div class="column is-half is-offset-one-quarter">
             <transition enter-active-class="animated flipInX">
-              <Notification :key="message.content" :message="message" v-if="Object.keys(message).length > 0"/>
+              <Notification
+                :key="message.content"
+                :message="message"
+                v-if="Object.keys(message).length > 0"
+              />
             </transition>
 
             <div class="card">
-              <SearchTask/>
+              <SearchTask />
 
-              <TaskList/>
+              <TaskList />
 
-              <footer class="card-footer">
-                <TaskAdd/>
-              </footer>
+              <footer class="card-footer"><TaskAdd /></footer>
             </div>
 
-            <!--<div class="content">-->
-            <!--<strong>Filter by:</strong>-->
+            <!-- <div class="content"> -->
+            <!-- <strong>Filter by:</strong> -->
 
-            <!--<task-tag :key="tag.name" :tag="tag" v-for="tag in tags"/>-->
-            <!--</div>-->
+            <!-- <task-tag :key="tag.name" :tag="tag" v-for="tag in tags"/> -->
+            <!-- </div> -->
           </div>
         </div>
       </div>

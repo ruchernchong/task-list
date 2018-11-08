@@ -1,17 +1,28 @@
 <template>
-  <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
+  <nav
+    class="navbar is-dark is-fixed-top"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div class="navbar-brand">
-      <button class="button is-dark navbar-burger" :class="{ 'is-active': isActive }"
-              @click="isActive = !isActive">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button
+        class="button is-dark navbar-burger"
+        :class="{ 'is-active': isActive }"
+        @click="isActive = !isActive"
+      >
+        <span></span> <span></span> <span></span>
       </button>
     </div>
 
     <div class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-end">
-        <router-link :to="nav.link" class="navbar-item" :key="nav.name" v-for="nav in navs" exact>
+        <router-link
+          :to="nav.link"
+          class="navbar-item"
+          :key="nav.name"
+          v-for="nav in navs"
+          exact
+        >
           {{ nav.name }}
         </router-link>
       </div>

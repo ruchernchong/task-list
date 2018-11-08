@@ -1,13 +1,13 @@
 <template>
-    <div class="buttons" :class="{ 'is-completed': task.completed }">
-        <button class="button is-info is-rounded" @click="editTask(task)">
-            <i class="fa fa-fw fa-edit"></i>
-        </button>
+  <div class="buttons" :class="{ 'is-completed': task.completed }">
+    <button class="button is-info is-rounded" @click="editTask(task)">
+      <i class="fa fa-fw fa-edit"></i>
+    </button>
 
-        <button class="button is-danger is-rounded" @click="deleteTask(task)">
-            <i class="fa fa-fw fa-trash"></i>
-        </button>
-    </div>
+    <button class="button is-danger is-rounded" @click="deleteTask(task)">
+      <i class="fa fa-fw fa-trash"></i>
+    </button>
+  </div>
 </template>
 
 <script>
