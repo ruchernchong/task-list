@@ -1,14 +1,16 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
 import TaskList from '@/components/TaskList'
-import TaskAction from '@/components/TaskAction'
+import TaskItem from '@/components/TaskItem'
 import DialogModal from '@/components/DialogModal'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('TaskList', () => {
-  let wrapper, store, state, mutations, computed
+  let wrapper
+  let store, state, mutations
+  let computed
 
   beforeEach(() => {
     state = {
@@ -78,22 +80,6 @@ describe('TaskList', () => {
     expect(wrapper.vm.tasks).toEqual(task)
   })
 
-  test('completed status should be toggled when clicked', () => {
-    wrapper
-      .findAll('.fa-check-circle')
-      .at(0)
-      .trigger('click')
-
-    expect(mutations.toggleTaskCompleted).toHaveBeenCalled()
-  })
-
-  test('should edit task', () => {
-    wrapper
-      .findAll(TaskAction)
-      .at(0)
-      .vm.$emit('editTask')
-  })
-
   test('should delete task when delete button is clicked', () => {
     wrapper.find(DialogModal).vm.$emit('deleteTask')
 
@@ -103,23 +89,23 @@ describe('TaskList', () => {
     expect(wrapper.vm.isActive).toBeFalsy()
   })
 
-  test('should open dialog modal when button is clicked', () => {
+  it('should open dialog modal when button is clicked', () => {
     const task = { name: 'First task', completed: true }
 
     wrapper
-      .findAll(TaskAction)
+      .findAll(TaskItem)
       .at(0)
-      .vm.$emit('openDialogModal', task)
+      .vm.$emit('confirmDelete', task)
 
     expect(wrapper.vm.task).toEqual(task)
     expect(wrapper.vm.isActive).toBe(true)
   })
 
-  test('should close dialog modal when button is clicked', () => {
+  it('should close dialog modal when button is clicked', () => {
     const task = {}
 
     wrapper
-      .findAll(TaskAction)
+      .findAll(TaskItem)
       .at(0)
       .vm.$emit('closeDialogModal', task)
 

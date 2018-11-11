@@ -34,12 +34,12 @@ export default new Vuex.Store({
         }</em></span> has been added.`
       }
     },
-    deleteTask (state, task) {
-      const index = state.tasks.indexOf(task)
+    editTask (state) {},
+    deleteTask ({ tasks, message }, task) {
+      const index = tasks.indexOf(task)
+      tasks.splice(index, 1)
 
-      state.tasks.splice(index, 1)
-
-      state.message = {
+      message = {
         title: 'Task deleted!',
         style: 'danger',
         content: `Task <span class="has-text-weight-bold"><em>${
@@ -49,7 +49,6 @@ export default new Vuex.Store({
     },
     toggleTaskCompleted (state, task) {
       const index = state.tasks.indexOf(task)
-
       state.tasks[index].completed = !state.tasks[index].completed
     },
     setQuery (state, query) {
