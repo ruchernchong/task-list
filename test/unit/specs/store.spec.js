@@ -49,4 +49,14 @@ describe('store', () => {
 
     expect(store.state.query).toBe(query)
   })
+
+  it('should return at least one match for filtered tasks', () => {
+    store.commit('setQuery', 'Foo')
+    expect(store.getters.tasks)
+  })
+
+  it('should return all tasks if query is empty', () => {
+    store.commit('setQuery', '')
+    expect(store.getters.tasks).toBeInstanceOf(Object)
+  })
 })

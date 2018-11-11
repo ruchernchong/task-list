@@ -17,7 +17,7 @@
 
               <TaskList />
 
-              <footer class="card-footer"><TaskAdd /></footer>
+              <footer class="card-footer"></footer>
             </div>
 
             <!-- <div class="content"> -->
@@ -38,7 +38,6 @@ import Notification from '@/components/Notification'
 import SearchTask from '@/components/SearchTask'
 import TaskTag from '@/components/TaskTag'
 import TaskList from '@/components/TaskList'
-import TaskAdd from '@/components/TaskAdd'
 
 export default {
   name: 'Home',
@@ -46,8 +45,7 @@ export default {
     Notification,
     SearchTask,
     TaskTag,
-    TaskList,
-    TaskAdd
+    TaskList
   },
   computed: {
     ...mapState(['message'])
