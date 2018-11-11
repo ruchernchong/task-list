@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification should render the component 1`] = `
+<div
+  class="notification is-success"
+>
+  <p
+    class="content"
+  />
+</div>
+`;

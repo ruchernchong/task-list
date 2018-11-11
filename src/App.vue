@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <header-component/>
+    <header-component />
 
     <transition enter-active-class="animated fadeIn">
-      <router-view/>
+      <router-view />
     </transition>
 
-    <footer-component/>
+    <footer-component />
   </div>
 </template>
 
@@ -24,5 +24,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./sass/app.scss";
+@import './sass/app.scss';
+
+html,
+body {
+  background-color: #f5f5f5;
+}
 </style>

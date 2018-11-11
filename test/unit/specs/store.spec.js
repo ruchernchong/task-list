@@ -6,11 +6,12 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('store', () => {
-  test('should increase length of task after adding a task', () => {
+  it('should increase length of task after adding a task', () => {
     expect(store.state.tasks.length).toBe(3)
 
     const task = {
-      id: 4, name: 'Foo', completed: false
+      name: 'Foo',
+      completed: false
     }
 
     store.commit('addTask', task)
@@ -18,11 +19,12 @@ describe('store', () => {
     expect(store.state.tasks.length).toBe(4)
   })
 
-  test('should decrease length of task after deleting a task', () => {
+  it('should decrease length of task after deleting a task', () => {
     expect(store.state.tasks.length).toBe(4)
 
     const task = {
-      id: 4, name: 'Foo', completed: false
+      name: 'Foo',
+      completed: false
     }
 
     store.commit('deleteTask', task)
@@ -30,7 +32,7 @@ describe('store', () => {
     expect(store.state.tasks.length).toBe(3)
   })
 
-  test('should toggle task completed status', () => {
+  it('should toggle task completed status', () => {
     expect(store.state.tasks[0].completed).toBe(true)
 
     store.commit('toggleTaskCompleted', store.state.tasks[0])
@@ -38,8 +40,8 @@ describe('store', () => {
     expect(store.state.tasks[0].completed).toBe(false)
   })
 
-  test('should save the search query in the store', () => {
-    expect(store.state.query).toBeNull()
+  it('should save the search query in the store', () => {
+    expect(store.state.query).toBe('')
 
     const query = 'Hello World!'
 

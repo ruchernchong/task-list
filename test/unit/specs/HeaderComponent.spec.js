@@ -28,7 +28,9 @@ describe('HeaderComponent', () => {
     const router = new VueRouter()
 
     const wrapper = shallowMount(HeaderComponent, {
-      store, router, localVue
+      store,
+      router,
+      localVue
     })
 
     expect(wrapper.vm.$route.path).toBe(wrapper.vm.navs[0].link)

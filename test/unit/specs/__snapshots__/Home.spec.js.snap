@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render the component 1`] = `
+<section
+  class="hero is-fullheight"
+>
+  <div
+    class="hero-body"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="columns"
+      >
+        <div
+          class="column is-half is-offset-one-quarter"
+        >
+          <!---->
+           
+          <div
+            class="card"
+          >
+            <searchtask-stub />
+             
+            <tasklist-stub />
+             
+            <footer
+              class="card-footer"
+            >
+              <taskadd-stub />
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;

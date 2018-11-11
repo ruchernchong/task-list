@@ -18,7 +18,10 @@ describe('DialogModal', () => {
   })
 
   test('emit confirm delete even when delete button is clicked', () => {
-    wrapper.findAll('.icon').at(0).trigger('click')
+    wrapper
+      .findAll('.icon')
+      .at(0)
+      .trigger('click')
 
     wrapper.vm.$emit('confirmDelete', task)
 
@@ -26,7 +29,10 @@ describe('DialogModal', () => {
   })
 
   test('should close modal when no button is clicked', () => {
-    wrapper.findAll('.icon').at(1).trigger('click')
+    wrapper
+      .findAll('.icon')
+      .at(1)
+      .trigger('click')
 
     expect(wrapper.emitted('closeDialogModal')).toBeTruthy()
   })

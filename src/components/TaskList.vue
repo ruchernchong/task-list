@@ -1,48 +1,36 @@
 <template>
-  <div class="columns">
-    <div class="column">
-      <table class="table is-fullwidth">
-        <thead>
-        <tr>
-          <th>Status</th>
-          <th>Task</th>
-          <th>Actions</th>
-        </tr>
-        </thead>
+  <div>
+    <TaskItem
+      :key="task.name"
+      :task="task"
+      @confirmDelete="openDialogModal(task)"
+      v-for="task in tasks"
+    />
 
-        <tbody>
-        <tr :class="{ 'is-completed': task.completed }" :key="task.id" v-for="task in tasks">
-          <td class="has-text-centered">
-            <i class="fa fa-2x fa-check-circle"
-               :class="[ task.completed ? 'has-text-success' : 'has-text-muted' ]"
-               @click="toggleTaskCompleted(task)"></i>
-          </td>
-          <td class="task-name" :class="{ 'is-completed': task.completed }"><strong>{{ task.name }}</strong>
-          </td>
-          <td>
-            <TaskAction :task="task" @editTask="editTask" @openDialogModal="openDialogModal(task)"/>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-
-      <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-        <DialogModal :key="isActive" :isActive="isActive" :task="task" @deleteTask="deleteTask"
-                     @closeDialogModal="closeDialogModal"/>
-      </transition>
-    </div>
+    <transition
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut"
+    >
+      <DialogModal
+        :key="isActive"
+        :isActive="isActive"
+        :task="task"
+        @deleteTask="deleteTask"
+        @closeDialogModal="closeDialogModal"
+      />
+    </transition>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import TaskAction from '@/components/TaskAction'
+import TaskItem from '@/components/TaskItem'
 import DialogModal from '@/components/DialogModal'
 
 export default {
   name: 'TaskList',
   components: {
-    TaskAction,
+    TaskItem,
     DialogModal
   },
   data () {
@@ -63,10 +51,6 @@ export default {
     }
   },
   methods: {
-    toggleTaskCompleted (task) {
-      this.$store.commit('toggleTaskCompleted', task)
-    },
-    editTask (task) {},
     deleteTask (task) {
       this.$store.commit('deleteTask', task)
       this.closeDialogModal()
@@ -82,31 +66,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-th {
-  text-align: center;
-}
-
-tr {
-  &.is-completed {
-    background-color: rgba(204, 204, 204, 0.5);
-  }
-}
-
-td {
-  vertical-align: middle;
-
-  &.is-completed {
-    text-decoration: line-through;
-  }
-
-  &.task-name {
-    cursor: pointer;
-  }
-}
-
-.fa-check-circle:not(.has-text-success) {
-  opacity: 0.5;
-}
-</style>
