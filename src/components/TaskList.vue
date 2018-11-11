@@ -6,6 +6,13 @@
       @confirmDelete="openDialogModal(task)"
       v-for="task in tasks"
     />
+    <div class="columns is-vcentered" v-if="tasks.length === 0">
+      <div class="column has-text-centered">
+        <h2>
+          No results found. Press <code>Enter</code> to add to the task list.
+        </h2>
+      </div>
+    </div>
 
     <transition
       enter-active-class="animated fadeIn"
@@ -23,7 +30,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import TaskItem from '@/components/TaskItem'
 import DialogModal from '@/components/DialogModal'
 
@@ -41,14 +48,7 @@ export default {
   },
   computed: {
     ...mapState(['query']),
-    tasks () {
-      const tasks = this.$store.state.tasks
-      const filteredTasks = tasks.filter(task =>
-        task.name.toLowerCase().includes(this.query)
-      )
-
-      return this.query ? filteredTasks : tasks
-    }
+    ...mapGetters(['tasks'])
   },
   methods: {
     deleteTask (task) {

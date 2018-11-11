@@ -49,37 +49,6 @@ describe('TaskList', () => {
     })
   })
 
-  test('should not have filtered tasks if query is null', () => {
-    const task = [
-      { name: 'First task', completed: true },
-      { name: 'Second task', completed: false }
-    ]
-
-    wrapper = shallowMount(TaskList, {
-      store,
-      localVue,
-      computed: {
-        query: () => null
-      }
-    })
-
-    expect(wrapper.vm.tasks).toEqual(task)
-  })
-
-  test('filtered tasks should have at least one match', () => {
-    const task = [{ name: 'First task', completed: true }]
-
-    wrapper = shallowMount(TaskList, {
-      store,
-      localVue,
-      computed: {
-        query: () => 'first'
-      }
-    })
-
-    expect(wrapper.vm.tasks).toEqual(task)
-  })
-
   test('should delete task when delete button is clicked', () => {
     wrapper.find(DialogModal).vm.$emit('deleteTask')
 

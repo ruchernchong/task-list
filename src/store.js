@@ -54,5 +54,14 @@ export default new Vuex.Store({
     setQuery (state, query) {
       state.query = query
     }
+  },
+  getters: {
+    tasks ({ tasks, query }) {
+      const filteredTasks = tasks.filter(task =>
+        task.name.toLowerCase().includes(query)
+      )
+
+      return query ? filteredTasks : tasks
+    }
   }
 })
