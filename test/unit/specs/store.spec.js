@@ -40,6 +40,30 @@ describe('store', () => {
     expect(store.state.tasks[0].completed).toBe(false)
   })
 
+  it('should return all tasks when no filter is provided', () => {
+    const task = { name: 'All' }
+    store.commit('setFilter', task)
+
+    expect(store.state.filter).toBe(task.name.toLowerCase())
+    expect(store.getters.tasks).toBe(store.state.tasks)
+  })
+
+  it('should return an object for tasks that are completed', () => {
+    const task = { name: 'Completed' }
+    store.commit('setFilter', task)
+
+    expect(store.state.filter).toBe(task.name.toLowerCase())
+    expect(store.getters.tasks).toBeInstanceOf(Object)
+  })
+
+  it('should return an object for tasks that are not completed', () => {
+    const task = { name: 'Todo' }
+    store.commit('setFilter', task)
+
+    expect(store.state.filter).toBe(task.name.toLowerCase())
+    expect(store.getters.tasks).toBeInstanceOf(Object)
+  })
+
   it('should save the search query in the store', () => {
     expect(store.state.query).toBe('')
 

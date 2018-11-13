@@ -20,6 +20,7 @@ export default new Vuex.Store({
       { name: 'Add CircleCI Continuous Integration (CI)', completed: false }
     ],
     message: {},
+    filter: null,
     query: ''
   },
   mutations: {
@@ -51,17 +52,43 @@ export default new Vuex.Store({
       const index = state.tasks.indexOf(task)
       state.tasks[index].completed = !state.tasks[index].completed
     },
+    setFilter (state, filter) {
+      state.filter = filter.name.toLowerCase()
+    },
     setQuery (state, query) {
+      state.filter = null
       state.query = query
     }
   },
   getters: {
-    tasks ({ tasks, query }) {
-      const filteredTasks = tasks.filter(task =>
-        task.name.toLowerCase().includes(query)
-      )
+    tasks ({ tasks, filter, query }) {
+      let filteredTasks
 
-      return query ? filteredTasks : tasks
+      if (filter) {
+        const FILTER = {
+          ALL: 'all',
+          COMPLETED: 'completed',
+          TODO: 'todo'
+        }
+
+        switch (filter) {
+          case FILTER.COMPLETED:
+            filteredTasks = tasks.filter(task => task.completed === true)
+            break
+          case FILTER.TODO:
+            filteredTasks = tasks.filter(task => task.completed === false)
+            break
+          case FILTER.ALL:
+            filteredTasks = tasks
+            break
+        }
+      } else {
+        filteredTasks = tasks.filter(task =>
+          task.name.toLowerCase().includes(query)
+        )
+      }
+
+      return query || filter ? filteredTasks : tasks
     }
   }
 })

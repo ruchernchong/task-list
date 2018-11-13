@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskFooter should render the component 1`] = `
+<footer
+  class="card-footer"
+>
+  <div
+    class="card-footer-item"
+  >
+    <small>
+      1 task left
+    </small>
+  </div>
+   
+  <div
+    class="card-footer-item"
+  >
+    <div
+      class="tags"
+    >
+      <span
+        class="tag is-link"
+      >
+        
+        All
+      
+      </span>
+      <span
+        class="tag is-link"
+      >
+        
+        Completed
+      
+      </span>
+      <span
+        class="tag is-link"
+      >
+        
+        Todo
+      
+      </span>
+    </div>
+  </div>
+</footer>
+`;
