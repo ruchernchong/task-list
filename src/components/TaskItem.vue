@@ -80,6 +80,7 @@ export default {
 <style lang="scss" scoped>
 .is-completed {
   background-color: rgba(204, 204, 204, 0.5);
+  text-decoration: line-through;
 }
 
 .fa-check-circle {
