@@ -14,7 +14,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "animate.css": "^3.7.0",
+    "animate-sass": "^0.8.2",
     "bulma": "^0.7.2",
     "font-awesome": "^4.7.0",
     "vue": "^2.5.17",
