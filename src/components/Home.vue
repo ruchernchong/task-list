@@ -19,12 +19,6 @@
 
               <TaskFooter />
             </div>
-
-            <!-- <div class="content"> -->
-            <!-- <strong>Filter by:</strong> -->
-
-            <!-- <task-tag :key="tag.name" :tag="tag" v-for="tag in tags"/> -->
-            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -36,7 +30,6 @@
 import { mapState } from 'vuex'
 import Notification from '@/components/Notification'
 import SearchTask from '@/components/SearchTask'
-import TaskTag from '@/components/TaskTag'
 import TaskList from '@/components/TaskList'
 import TaskFooter from '@/components/TaskFooter'
 
@@ -45,7 +38,6 @@ export default {
   components: {
     Notification,
     SearchTask,
-    TaskTag,
     TaskList,
     TaskFooter
   },
