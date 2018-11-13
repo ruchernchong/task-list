@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card-content is-paddingless">
     <TaskItem
       :key="task.name"
       :task="task"
