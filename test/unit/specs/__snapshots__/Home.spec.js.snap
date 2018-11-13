@@ -25,9 +25,7 @@ exports[`Home should render the component 1`] = `
              
             <tasklist-stub />
              
-            <footer
-              class="card-footer"
-            />
+            <taskfooter-stub />
           </div>
         </div>
       </div>
