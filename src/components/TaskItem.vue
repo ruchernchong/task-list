@@ -42,7 +42,8 @@
 export default {
   name: 'TaskItem',
   props: {
-    task: Object
+    /** @type {{name: String, completed: Boolean}} */
+    task: {}
   },
   data () {
     return {
@@ -56,7 +57,10 @@ export default {
       this.$store.commit('toggleTaskCompleted', task)
     },
     editTask () {
-      this.isEditing = true
+      if (!this.task.completed) {
+        this.isEditing = true
+        this.$nextTick(() => this.$refs.input.focus())
+      }
     },
     doneEditing () {
       this.stopEditing()

@@ -25,14 +25,33 @@ describe('TaskItem', () => {
       store,
       localVue,
       propsData: {
-        task: { name: 'First task', completed: true }
+        task: {
+          name: 'Test',
+          completed: true
+        }
       }
     })
   })
 
-  it('should start editing', () => {
-    wrapper.findAll('.is-task-name').trigger('dblclick')
-    expect(wrapper.vm.isEditing).toBe(true)
+  it('should edit task when the task is not completed', done => {
+    wrapper.setProps({
+      task: {
+        name: 'Test',
+        completed: false
+      }
+    })
+
+    wrapper.find('.is-task-name').trigger('dblclick')
+    wrapper.vm.$nextTick(() => {
+      expect(wrapper.vm.isEditing).toBe(true)
+      done()
+    })
+  })
+
+  it('should not edit task when the task is completed', () => {
+    expect(wrapper.vm.isEditing).toBe(false)
+    wrapper.find('.is-task-name').trigger('dblclick')
+    expect(wrapper.vm.isEditing).toBe(false)
   })
 
   it('should stop editing when enter key is pressed', () => {
