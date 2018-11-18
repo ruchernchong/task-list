@@ -52,7 +52,7 @@ jobs:
           name: Deploy to S3
           command: |
             sudo apt-get install awscli
-            aws s3 sync dist/ s3://${BUCKET}/${DIRECTORY}
+            aws s3 sync dist/ s3://${BUCKET}/${DIRECTORY} --acl public-read
 
 workflows:
   version: 2
