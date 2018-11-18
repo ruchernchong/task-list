@@ -2,30 +2,63 @@ version: 2
 jobs:
   test:
     docker:
-    - image: circleci/node:latest
+      - image: circleci/node:latest
     steps:
-    - checkout
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        - v1-dependencies-
-    - run:
-        name: Install packages
-        command: yarn
-    - save_cache:
-        paths:
-        - node_modules/
-        key: v1-dependencies-{{ checksum "package.json" }}
-    - run:
-        name: Run tests and upload to Codecov
-        command: |
-          yarn test
-          yarn codecov
-    - store_test_results:
-        path: test/unit
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run:
+          name: Install packages
+          command: yarn
+      - save_cache:
+          paths:
+          - node_modules/
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run tests and upload to Codecov
+          command: |
+            yarn test
+            yarn codecov
+      - store_test_results:
+          path: test/unit
+
+  build:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run:
+          name: Build the project
+          command: yarn build
+
+  deploy:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run:
+          name: Deploy to S3
+          command: |
+            aws s3 sync dist/ s3://${bucket}
 
 workflows:
   version: 2
   test:
     jobs:
     - test
+  build-and-deploy:
+    jobs:
+    - build
+    - deploy:
+        requires:
+        - build
