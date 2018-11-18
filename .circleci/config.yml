@@ -38,7 +38,7 @@ jobs:
           command: yarn build
       - save_cache:
           paths: dist
-          key: v1-build-{{ checksum }}
+          key: build
 
   deploy:
     docker:
@@ -47,7 +47,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-build-{{ checksum }}
+          - build
       - run:
           name: Deploy to S3
           command: |
