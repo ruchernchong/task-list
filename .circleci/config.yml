@@ -36,8 +36,9 @@ jobs:
       - run:
           name: Build the project
           command: yarn build
-      - store_artifacts:
-          path: dist
+      - save_cache:
+          paths: dist
+          key: v1-build-{{ checksum }}
 
   deploy:
     docker:
@@ -46,13 +47,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+          - v1-build-{{ checksum }}
       - run:
           name: Deploy to S3
           command: |
             sudo apt-get install awscli
-            aws s3 sync dist/ s3://${bucket}
+            aws s3 sync dist/ s3://${BUCKET}
 
 workflows:
   version: 2
