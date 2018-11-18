@@ -49,6 +49,7 @@ jobs:
       - run:
           name: Deploy to S3
           command: |
+            sudo apt-get install awscli
             aws s3 sync dist/ s3://${bucket}
 
 workflows:
