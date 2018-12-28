@@ -20,7 +20,7 @@ jobs:
         name: Run tests and upload to Codecov
         command: |
           yarn test
-          yarn codecov
+          npx codecov
     - store_test_results:
         path: test/unit
 
