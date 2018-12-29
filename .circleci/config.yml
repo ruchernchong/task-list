@@ -1,70 +1,75 @@
 version: 2
+
 jobs:
   test:
     docker:
-    - image: circleci/node:10
+      - image: circleci/node:10
+    working_directory: ~/project
     steps:
-    - checkout
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        - v1-dependencies-
-    - run:
-        name: Install packages
-        command: yarn
-    - save_cache:
-        paths:
-        - node_modules/
-        key: v1-dependencies-{{ checksum "package.json" }}
-    - run:
-        name: Run tests and upload to Codecov
-        command: |
-          yarn test
-          npx codecov
-    - store_test_results:
-        path: test/unit
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run:
+          name: Install packages
+          command: yarn
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package.json" }}
+          paths: node_modules
+      - persist_to_workspace:
+          root: .
+          paths: .
+      - run:
+          name: Run tests and upload to Codecov
+          command: |
+            yarn test
+            npx codecov
+      - store_test_results:
+          path: test/unit
 
   build:
     docker:
-    - image: circleci/node:10
+      - image: circleci/node:10
+    working_directory: ~/project
     steps:
-    - checkout
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        - v1-dependencies-
-    - run:
-        name: Build the project
-        command: yarn build
-    - save_cache:
-        paths: dist
-        key: build
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Build the project
+          command: yarn build
+      - persist_to_workspace:
+          root: .
+          paths: .
 
   deploy:
     docker:
-    - image: circleci/node:10
+      - image: circleci/node:10
+    working_directory: ~/project
     steps:
-    - checkout
-    - restore_cache:
-        keys:
-        - build
-    - run:
-        name: Deploy to S3
-        command: |
-          sudo apt-get install awscli
-          aws s3 sync dist/ s3://${BUCKET}/projects/${DIRECTORY} --acl public-read --cache-control max-age=604800 --delete
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Deploy to S3
+          command: |
+            sudo apt-get install awscli
+            aws s3 sync dist/ s3://${BUCKET}/projects/${DIRECTORY} --acl public-read --cache-control max-age=604800 --delete
 
 workflows:
   version: 2
-  test:
+  test-build-deploy:
     jobs:
-    - test
-  build-and-deploy:
-    jobs:
-    - build
-    - deploy:
-        requires:
-        - build
-        filters:
-          branches:
-            only: master
+      - test
+      - build:
+          requires:
+            - test
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
