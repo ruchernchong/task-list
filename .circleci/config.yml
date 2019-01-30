@@ -59,7 +59,7 @@ jobs:
             sudo apt-get install awscli
             aws configure set preview.cloudfront true
             aws s3 sync dist/ s3://${BUCKET}/projects/${DIRECTORY} --acl public-read --cache-control max-age=604800 --delete
-            aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths /
+            aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths "/*"
 
 workflows:
   version: 2
