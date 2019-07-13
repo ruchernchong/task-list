@@ -1,6 +1,6 @@
 # Task List
 [![CircleCI](https://circleci.com/gh/ruchern/task-list.svg?style=svg)](https://circleci.com/gh/ruchern/task-list)
-[![codecov](https://codecov.io/gh/ruchern/task-list/branch/master/graph/badge.svg)](https://codecov.io/gh/ruchern/task-list)
+[![codecov](https://codecov.io/gh/ruchern/task-list/branch/master/graph/badge.svg)](https://codecov.io/gh/ruchern/task-list) [![Greenkeeper badge](https://badges.greenkeeper.io/ruchern/task-list.svg)](https://greenkeeper.io/)
 
 > A Vue.js project
 
