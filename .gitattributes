@@ -1,5 +1,2 @@
-build/* linguist-vendored
-config/* linguist-vendored
 .eslintrc linguist-vendored
 .postcssrc.js linguist-vendored
-fileTransformer.js linguist-vendored
