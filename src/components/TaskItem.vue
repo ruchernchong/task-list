@@ -39,44 +39,44 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  name: 'TaskItem',
-  props: ['task'],
+  name: "TaskItem",
+  props: ["task"],
   data() {
     return {
       isEditing: false,
       name: this.task.name,
-      showDelete: false
-    }
+      showDelete: false,
+    };
   },
   methods: {
     toggleTaskCompleted(task) {
-      this.$store.commit('toggleTaskCompleted', task)
+      this.$store.commit("toggleTaskCompleted", task);
     },
     editTask() {
       if (!this.task.completed) {
-        this.isEditing = true
+        this.isEditing = true;
       }
     },
     doneEditing() {
-      this.stopEditing()
+      this.stopEditing();
     },
     stopEditing() {
-      this.isEditing = false
+      this.isEditing = false;
     },
     confirmDelete(task) {
-      this.$emit('confirmDelete', task)
+      this.$emit("confirmDelete", task);
     },
     onMouseOver() {
-      this.showDelete = true
+      this.showDelete = true;
     },
     onMouseLeave() {
-      this.showDelete = false
-    }
-  }
-})
+      this.showDelete = false;
+    },
+  },
+});
 </script>
 
 <style lang="scss" scoped>

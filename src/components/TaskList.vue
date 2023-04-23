@@ -29,39 +29,39 @@
 </template>
 
 <script lang="ts">
-import { mapState, mapGetters } from 'vuex'
-import TaskItem from './TaskItem.vue'
-import DialogModal from './DialogModal.vue'
+import { mapState, mapGetters } from "vuex";
+import TaskItem from "./TaskItem.vue";
+import DialogModal from "./DialogModal.vue";
 
 export default {
-  name: 'TaskList',
+  name: "TaskList",
   components: {
     TaskItem,
-    DialogModal
+    DialogModal,
   },
   data() {
     return {
       isActive: false,
-      task: {}
-    }
+      task: {},
+    };
   },
   computed: {
-    ...mapState(['query']),
-    ...mapGetters(['tasks'])
+    ...mapState(["query"]),
+    ...mapGetters(["tasks"]),
   },
   methods: {
     deleteTask(task) {
-      this.$store.commit('deleteTask', task)
-      this.closeDialogModal()
+      this.$store.commit("deleteTask", task);
+      this.closeDialogModal();
     },
     openDialogModal(task) {
-      this.task = task
-      this.isActive = true
+      this.task = task;
+      this.isActive = true;
     },
     closeDialogModal() {
-      this.task = {}
-      this.isActive = false
-    }
-  }
-}
+      this.task = {};
+      this.isActive = false;
+    },
+  },
+};
 </script>

@@ -1,7 +1,7 @@
 <template>
   <footer class="card-footer">
     <div class="card-footer-item">
-      <small>{{ remaining }} {{ remaining > 1 ? 'tasks' : 'task' }} left</small>
+      <small>{{ remaining }} {{ remaining > 1 ? "tasks" : "task" }} left</small>
     </div>
     <div class="card-footer-item">
       <div class="tags">
@@ -19,27 +19,27 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
-  name: 'TaskFooter',
+  name: "TaskFooter",
   data() {
     return {
-      filters: [{ name: 'All' }, { name: 'Completed' }, { name: 'Todo' }]
-    }
+      filters: [{ name: "All" }, { name: "Completed" }, { name: "Todo" }],
+    };
   },
   computed: {
-    ...mapState(['tasks']),
+    ...mapState(["tasks"]),
     remaining() {
-      return this.tasks.filter(task => task.completed === false).length
-    }
+      return this.tasks.filter((task) => task.completed === false).length;
+    },
   },
   methods: {
     setFilter(filter) {
-      this.$store.commit('setFilter', filter)
-    }
-  }
-}
+      this.$store.commit("setFilter", filter);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

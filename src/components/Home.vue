@@ -21,24 +21,24 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex'
-import Notification from './Notification.vue'
-import SearchTask from './SearchTask.vue'
-import TaskList from './TaskList.vue'
-import TaskFooter from './TaskFooter.vue'
+import { mapState } from "vuex";
+import Notification from "./Notification.vue";
+import SearchTask from "./SearchTask.vue";
+import TaskList from "./TaskList.vue";
+import TaskFooter from "./TaskFooter.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     Notification,
     SearchTask,
     TaskList,
-    TaskFooter
+    TaskFooter,
   },
   computed: {
-    ...mapState(['message'])
-  }
-}
+    ...mapState(["message"]),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

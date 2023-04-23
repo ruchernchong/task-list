@@ -31,19 +31,19 @@
 </template>
 
 <script lang="ts">
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
-  name: 'HeaderComponent',
+  name: "HeaderComponent",
   data() {
     return {
-      isActive: false
-    }
+      isActive: false,
+    };
   },
   computed: {
-    ...mapState(['navs'])
-  }
-}
+    ...mapState(["navs"]),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

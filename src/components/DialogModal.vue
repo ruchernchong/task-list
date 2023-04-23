@@ -39,21 +39,21 @@
 
 <script lang="ts">
 export default {
-  name: 'DialogModal',
+  name: "DialogModal",
   props: {
     isActive: Boolean,
-    task: Object
+    task: Object,
   },
   methods: {
     confirmDelete(task) {
-      this.$emit('deleteTask', task)
+      this.$emit("deleteTask", task);
     },
     cancel() {
-      this.closeDialogModal()
+      this.closeDialogModal();
     },
     closeDialogModal() {
-      this.$emit('closeDialogModal')
-    }
-  }
-}
+      this.$emit("closeDialogModal");
+    },
+  },
+};
 </script>
