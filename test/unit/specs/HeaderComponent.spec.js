@@ -1,20 +1,22 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils'
-import Vuex from 'vuex'
-import VueRouter from 'vue-router'
-import HeaderComponent from '@/components/HeaderComponent'
-import store from '@/store'
-
-const localVue = createLocalVue()
-localVue.use(Vuex)
+import { shallowMount } from '@vue/test-utils'
+import { createRouter, createWebHistory } from 'vue-router'
+import HeaderComponent from '@/components/HeaderComponent.vue'
+import { routes } from '@/router'
+import { store } from '@/store'
 
 describe('HeaderComponent', () => {
   let wrapper
 
+  const router = createRouter({
+    history: createWebHistory(),
+    routes
+  })
+
   beforeEach(() => {
     wrapper = shallowMount(HeaderComponent, {
-      stubs: ['router-link'],
-      store,
-      localVue
+      global: {
+        plugins: [router, store]
+      }
     })
   })
 
@@ -22,17 +24,7 @@ describe('HeaderComponent', () => {
     expect(wrapper.vm.navs.length).toBeGreaterThanOrEqual(1)
   })
 
-  test('', () => {
-    localVue.use(VueRouter)
-
-    const router = new VueRouter()
-
-    const wrapper = shallowMount(HeaderComponent, {
-      store,
-      router,
-      localVue
-    })
-
+  test('should return the correct route path', () => {
     expect(wrapper.vm.$route.path).toBe(wrapper.vm.navs[0].link)
   })
 })

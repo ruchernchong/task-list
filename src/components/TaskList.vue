@@ -19,7 +19,6 @@
       leave-active-class="animated fadeOut"
     >
       <DialogModal
-        :key="isActive"
         :isActive="isActive"
         :task="task"
         @deleteTask="deleteTask"
@@ -29,10 +28,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState, mapGetters } from 'vuex'
-import TaskItem from '@/components/TaskItem'
-import DialogModal from '@/components/DialogModal'
+import TaskItem from './TaskItem.vue'
+import DialogModal from './DialogModal.vue'
 
 export default {
   name: 'TaskList',
@@ -40,7 +39,7 @@ export default {
     TaskItem,
     DialogModal
   },
-  data () {
+  data() {
     return {
       isActive: false,
       task: {}
@@ -51,15 +50,15 @@ export default {
     ...mapGetters(['tasks'])
   },
   methods: {
-    deleteTask (task) {
+    deleteTask(task) {
       this.$store.commit('deleteTask', task)
       this.closeDialogModal()
     },
-    openDialogModal (task) {
+    openDialogModal(task) {
       this.task = task
       this.isActive = true
     },
-    closeDialogModal () {
+    closeDialogModal() {
       this.task = {}
       this.isActive = false
     }

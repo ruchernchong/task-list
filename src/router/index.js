@@ -1,30 +1,27 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-Vue.use(Router)
-
-export default new Router({
-  base: window.location.pathname,
-  mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: () =>
-        import(/* webpackChunkName: "home" */ '@/components/Home'),
-      meta: {
-        title: 'Home'
-      }
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: () =>
-        import(/* webpackChunkName: "about" */ '@/components/About'),
-      meta: {
-        title: 'About'
-      }
+export const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: () => import('../components/Home.vue'),
+    meta: {
+      title: 'Home'
     }
-  ],
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('../components/About.vue'),
+    meta: {
+      title: 'About'
+    }
+  }
+]
+
+export const router = createRouter({
+  base: window.location.pathname,
+  history: createWebHashHistory(),
+  routes,
   linkActiveClass: 'is-active'
 })

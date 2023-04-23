@@ -38,14 +38,13 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
   name: 'TaskItem',
-  props: {
-    /** @type {{name: String, completed: Boolean}} */
-    task: {}
-  },
-  data () {
+  props: ['task'],
+  data() {
     return {
       isEditing: false,
       name: this.task.name,
@@ -53,32 +52,31 @@ export default {
     }
   },
   methods: {
-    toggleTaskCompleted (task) {
+    toggleTaskCompleted(task) {
       this.$store.commit('toggleTaskCompleted', task)
     },
-    editTask () {
+    editTask() {
       if (!this.task.completed) {
         this.isEditing = true
-        this.$nextTick(() => this.$refs.input.focus())
       }
     },
-    doneEditing () {
+    doneEditing() {
       this.stopEditing()
     },
-    stopEditing () {
+    stopEditing() {
       this.isEditing = false
     },
-    confirmDelete (task) {
+    confirmDelete(task) {
       this.$emit('confirmDelete', task)
     },
-    onMouseOver () {
+    onMouseOver() {
       this.showDelete = true
     },
-    onMouseLeave () {
+    onMouseLeave() {
       this.showDelete = false
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

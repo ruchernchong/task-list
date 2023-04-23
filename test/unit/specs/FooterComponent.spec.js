@@ -1,18 +1,15 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils'
-import Vuex from 'vuex'
-import FooterComponent from '@/components/FooterComponent'
-import store from '@/store'
-
-const localVue = createLocalVue()
-localVue.use(Vuex)
+import { shallowMount } from '@vue/test-utils'
+import FooterComponent from '@/components/FooterComponent.vue'
+import { store } from '@/store'
 
 describe('FooterComponent', () => {
   let wrapper
 
   beforeEach(() => {
     wrapper = shallowMount(FooterComponent, {
-      store,
-      localVue
+      global: {
+        plugins: [store]
+      }
     })
   })
 

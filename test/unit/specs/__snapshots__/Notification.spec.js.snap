@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Notification should render the component 1`] = `
+exports[`Notification > should render the component 1`] = `
 <div
   class="notification is-success"
 >

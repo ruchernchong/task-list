@@ -2,19 +2,17 @@
   <a :href="link.url" target="_blank" rel="noopener">
     <img
       :src="
-        require(`@/assets/logos/${this.link.name
-          .toLowerCase()
-          .replace(/\s+/g, '-')}.png`)
+        `../assets/logos/${link.name.toLowerCase().replace(/\s+/g, '-')}.png`
       "
     />
   </a>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'Logo',
-  props: {
-    link: Object
-  }
-}
+  props: ['link']
+})
 </script>

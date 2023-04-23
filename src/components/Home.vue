@@ -12,13 +12,7 @@
               />
             </transition>
 
-            <div class="card">
-              <SearchTask />
-
-              <TaskList />
-
-              <TaskFooter />
-            </div>
+            <div class="card"><SearchTask /> <TaskList /> <TaskFooter /></div>
           </div>
         </div>
       </div>
@@ -26,12 +20,12 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from 'vuex'
-import Notification from '@/components/Notification'
-import SearchTask from '@/components/SearchTask'
-import TaskList from '@/components/TaskList'
-import TaskFooter from '@/components/TaskFooter'
+import Notification from './Notification.vue'
+import SearchTask from './SearchTask.vue'
+import TaskList from './TaskList.vue'
+import TaskFooter from './TaskFooter.vue'
 
 export default {
   name: 'Home',

@@ -30,12 +30,12 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from 'vuex'
 
 export default {
   name: 'HeaderComponent',
-  data () {
+  data() {
     return {
       isActive: false
     }

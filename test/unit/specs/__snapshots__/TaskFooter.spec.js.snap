@@ -1,44 +1,48 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TaskFooter should render the component 1`] = `
+exports[`TaskFooter > should render the component 1`] = `
 <footer
   class="card-footer"
+  data-v-a260209c=""
 >
   <div
     class="card-footer-item"
+    data-v-a260209c=""
   >
-    <small>
+    <small
+      data-v-a260209c=""
+    >
       1 task left
     </small>
   </div>
-   
   <div
     class="card-footer-item"
+    data-v-a260209c=""
   >
     <div
       class="tags"
+      data-v-a260209c=""
     >
+      
       <span
         class="tag is-link"
+        data-v-a260209c=""
       >
-        
         All
-      
       </span>
       <span
         class="tag is-link"
+        data-v-a260209c=""
       >
-        
         Completed
-      
       </span>
       <span
         class="tag is-link"
+        data-v-a260209c=""
       >
-        
         Todo
-      
       </span>
+      
     </div>
   </div>
 </footer>

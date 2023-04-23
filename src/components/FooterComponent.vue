@@ -30,9 +30,9 @@
   </footer>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from 'vuex'
-import Logo from '@/components/Logo'
+import Logo from './Logo.vue'
 
 export default {
   name: 'FooterComponent',

@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters } from 'vuex'
 
 export default {
@@ -20,16 +20,16 @@ export default {
   computed: {
     ...mapGetters(['tasks'])
   },
-  data () {
+  data() {
     return {
       name: ''
     }
   },
   methods: {
-    setQuery (e) {
+    setQuery(e) {
       this.$store.commit('setQuery', e.target.value.toLowerCase())
     },
-    addTask () {
+    addTask() {
       const task = {
         name: this.name,
         completed: false

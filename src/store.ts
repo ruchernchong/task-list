@@ -1,9 +1,18 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import {InjectionKey} from "vue";
+import { createStore,Store } from 'vuex'
 
-Vue.use(Vuex)
+export interface State {
+  navs: any[]
+  links: any[]
+  tasks: any[]
+  message: any
+  filter:any
+  query: String
+}
 
-export default new Vuex.Store({
+export const key: InjectionKey<Store<State>> = Symbol()
+
+export const store = createStore<State>({
   strict: process.env.NODE_ENV !== 'production',
   state: {
     navs: [{ name: 'Home', link: '/' }, { name: 'About', link: '/about' }],
@@ -24,7 +33,7 @@ export default new Vuex.Store({
     query: ''
   },
   mutations: {
-    addTask (state, task) {
+    addTask(state, task) {
       state.tasks.push(task)
 
       state.message = {
@@ -35,8 +44,8 @@ export default new Vuex.Store({
         }</em></span> has been added.`
       }
     },
-    editTask (state) {},
-    deleteTask ({ tasks, message }, task) {
+    editTask(state) {},
+    deleteTask({ tasks, message }, task) {
       const index = tasks.indexOf(task)
       tasks.splice(index, 1)
 
@@ -48,20 +57,20 @@ export default new Vuex.Store({
         }</em></span> has been deleted.`
       }
     },
-    toggleTaskCompleted (state, task) {
+    toggleTaskCompleted(state, task) {
       const index = state.tasks.indexOf(task)
       state.tasks[index].completed = !state.tasks[index].completed
     },
-    setFilter (state, filter) {
+    setFilter(state, filter) {
       state.filter = filter.name.toLowerCase()
     },
-    setQuery (state, query) {
+    setQuery(state, query) {
       state.filter = null
       state.query = query
     }
   },
   getters: {
-    tasks ({ tasks, filter, query }) {
+    tasks({ tasks, filter, query }) {
       let filteredTasks
 
       if (filter) {

@@ -37,7 +37,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'DialogModal',
   props: {
@@ -45,13 +45,13 @@ export default {
     task: Object
   },
   methods: {
-    confirmDelete (task) {
+    confirmDelete(task) {
       this.$emit('deleteTask', task)
     },
-    cancel () {
+    cancel() {
       this.closeDialogModal()
     },
-    closeDialogModal () {
+    closeDialogModal() {
       this.$emit('closeDialogModal')
     }
   }

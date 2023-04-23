@@ -1,9 +1,4 @@
-import { createLocalVue } from '@vue/test-utils'
-import Vuex from 'vuex'
-import store from '@/store'
-
-const localVue = createLocalVue()
-localVue.use(Vuex)
+import { store } from '../../../src/store'
 
 describe('store', () => {
   it('should increase length of task after adding a task', () => {

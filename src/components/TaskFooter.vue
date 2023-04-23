@@ -18,24 +18,24 @@
   </footer>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from 'vuex'
 
 export default {
   name: 'TaskFooter',
-  data () {
+  data() {
     return {
       filters: [{ name: 'All' }, { name: 'Completed' }, { name: 'Todo' }]
     }
   },
   computed: {
     ...mapState(['tasks']),
-    remaining () {
+    remaining() {
       return this.tasks.filter(task => task.completed === false).length
     }
   },
   methods: {
-    setFilter (filter) {
+    setFilter(filter) {
       this.$store.commit('setFilter', filter)
     }
   }

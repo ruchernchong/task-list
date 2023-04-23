@@ -1,29 +1,26 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils'
-import Vuex from 'vuex'
-import TaskItem from '@/components/TaskItem'
-
-const localVue = createLocalVue()
-localVue.use(Vuex)
+import { shallowMount } from '@vue/test-utils'
+import { createStore } from 'vuex'
+import TaskItem from '@/components/TaskItem.vue'
 
 describe('TaskItem', () => {
   let wrapper
-  let store, state, mutations
+  let store, mutations
 
   beforeEach(() => {
     mutations = {
-      addTask: jest.fn(),
-      deleteTask: jest.fn(),
-      toggleTaskCompleted: jest.fn()
+      addTask: vi.fn(),
+      deleteTask: vi.fn(),
+      toggleTaskCompleted: vi.fn()
     }
 
-    store = new Vuex.Store({
-      state,
+    store = createStore({
       mutations
     })
 
     wrapper = shallowMount(TaskItem, {
-      store,
-      localVue,
+      global: {
+        plugins: [store]
+      },
       propsData: {
         task: {
           name: 'Test',
@@ -33,19 +30,17 @@ describe('TaskItem', () => {
     })
   })
 
-  it('should edit task when the task is not completed', done => {
-    wrapper.setProps({
+  it('should edit task when the task is not completed', async () => {
+    await wrapper.setProps({
       task: {
         name: 'Test',
         completed: false
       }
     })
 
+    expect(wrapper.vm.isEditing).toBe(false)
     wrapper.find('.is-task-name').trigger('dblclick')
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.isEditing).toBe(true)
-      done()
-    })
+    expect(wrapper.vm.isEditing).toBe(true)
   })
 
   it('should not edit task when the task is completed', () => {
@@ -54,15 +49,14 @@ describe('TaskItem', () => {
     expect(wrapper.vm.isEditing).toBe(false)
   })
 
-  it('should stop editing when enter key is pressed', () => {
-    wrapper.setData({ isEditing: true })
-
+  it('should stop editing when enter key is pressed', async () => {
+    await wrapper.setData({ isEditing: true })
     wrapper.find('input').trigger('keyup.enter')
     expect(wrapper.vm.isEditing).toBe(false)
   })
 
-  it('should stop editing when clicking outside of the input field', () => {
-    wrapper.setData({ isEditing: true })
+  it('should stop editing when clicking outside of the input field', async () => {
+    await wrapper.setData({ isEditing: true })
     wrapper.find('input').trigger('blur')
     expect(wrapper.vm.isEditing).toBe(false)
   })
@@ -74,7 +68,7 @@ describe('TaskItem', () => {
 
   it('should toggle completed status when clicked', () => {
     wrapper.setData({ isEditing: false })
-    wrapper.findAll('.fa-check-circle').trigger('click')
+    wrapper.find('.fa-check-circle').trigger('click')
     expect(mutations.toggleTaskCompleted).toHaveBeenCalled()
   })
 
