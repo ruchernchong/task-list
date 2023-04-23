@@ -13,7 +13,7 @@
       <p class="content has-text-centered">
         This source code for this project can be found on
         <a
-          href="https://github.com/ruchern/task-list.git"
+          href="https://github.com/ruchern/vue-task-list.git"
           target="_blank"
           rel="noopener"
           >Github</a
