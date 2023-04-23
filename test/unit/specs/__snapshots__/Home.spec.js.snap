@@ -1,31 +1,50 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Home should render the component 1`] = `
+exports[`Home > should render the component 1`] = `
 <section
   class="hero is-fullheight"
+  data-v-08e32229=""
 >
   <div
     class="hero-body"
+    data-v-08e32229=""
   >
     <div
       class="container"
+      data-v-08e32229=""
     >
       <div
         class="columns"
+        data-v-08e32229=""
       >
         <div
           class="column is-half is-offset-one-quarter"
+          data-v-08e32229=""
         >
-          <!---->
-           
+          <transition-stub
+            appear="false"
+            css="true"
+            data-v-08e32229=""
+            enteractiveclass="animated flipInX"
+            persisted="false"
+          >
+            <!--v-if-->
+          </transition-stub>
           <div
             class="card"
+            data-v-08e32229=""
           >
-            <searchtask-stub />
+            <search-task-stub
+              data-v-08e32229=""
+            />
              
-            <tasklist-stub />
+            <task-list-stub
+              data-v-08e32229=""
+            />
              
-            <taskfooter-stub />
+            <task-footer-stub
+              data-v-08e32229=""
+            />
           </div>
         </div>
       </div>

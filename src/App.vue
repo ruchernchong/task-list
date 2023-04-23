@@ -2,30 +2,31 @@
   <div id="app">
     <header-component />
 
-    <transition enter-active-class="animated fadeIn">
-      <router-view />
-    </transition>
+    <router-view v-slot="{ Component, route }">
+      <transition enter-active-class="animated fadeIn">
+        <component :is="Component"></component>
+      </transition>
+    </router-view>
 
     <footer-component />
   </div>
 </template>
 
-<script>
-import HeaderComponent from '@/components/HeaderComponent'
-import FooterComponent from '@/components/FooterComponent'
+<script lang="ts">
+import { defineComponent } from "vue";
+import HeaderComponent from "./components/HeaderComponent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 
-export default {
-  name: 'App',
+export default defineComponent({
+  name: "App",
   components: {
     HeaderComponent,
-    FooterComponent
-  }
-}
+    FooterComponent,
+  },
+});
 </script>
 
 <style lang="scss">
-@import './sass/app.scss';
-
 html,
 body {
   background-color: #f5f5f5;

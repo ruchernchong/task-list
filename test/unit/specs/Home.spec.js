@@ -1,9 +1,6 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils'
-import Vuex from 'vuex'
-import Home from '@/components/Home'
-
-const localVue = createLocalVue()
-localVue.use(Vuex)
+import { shallowMount } from '@vue/test-utils'
+import { createStore } from 'vuex'
+import Home from '@/components/Home.vue'
 
 describe('Home', () => {
   let wrapper
@@ -16,17 +13,18 @@ describe('Home', () => {
       message: {}
     }
 
-    store = new Vuex.Store({
+    store = createStore({
       state
     })
 
     wrapper = shallowMount(Home, {
-      store,
-      localVue
+      global: {
+        plugins: [store]
+      }
     })
   })
 
-  test('should render the component', () => {
+  it('should render the component', () => {
     expect(wrapper.element).toMatchSnapshot()
   })
 })

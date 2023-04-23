@@ -1,9 +1,6 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils'
-import Vuex from 'vuex'
-import TaskFooter from '@/components/TaskFooter'
-
-const localVue = createLocalVue()
-localVue.use(Vuex)
+import { shallowMount } from '@vue/test-utils'
+import { createStore } from 'vuex'
+import TaskFooter from '@/components/TaskFooter.vue'
 
 describe('TaskFooter', () => {
   let wrapper
@@ -19,18 +16,19 @@ describe('TaskFooter', () => {
     }
 
     mutations = {
-      setFilter: jest.fn()
+      setFilter: vi.fn()
     }
 
-    store = new Vuex.Store({
+    store = createStore({
       state,
       mutations
     })
 
     wrapper = shallowMount(TaskFooter, {
       attachToDocument: true,
-      store,
-      localVue
+      global: {
+        plugins: [store]
+      }
     })
   })
 

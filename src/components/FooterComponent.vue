@@ -30,17 +30,17 @@
   </footer>
 </template>
 
-<script>
-import { mapState } from 'vuex'
-import Logo from '@/components/Logo'
+<script lang="ts">
+import { mapState } from "vuex";
+import Logo from "./Logo.vue";
 
 export default {
-  name: 'FooterComponent',
+  name: "FooterComponent",
   components: { Logo },
   computed: {
-    ...mapState(['links'])
-  }
-}
+    ...mapState(["links"]),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -38,47 +38,45 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TaskItem',
-  props: {
-    /** @type {{name: String, completed: Boolean}} */
-    task: {}
-  },
-  data () {
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  name: "TaskItem",
+  props: ["task"],
+  data() {
     return {
       isEditing: false,
       name: this.task.name,
-      showDelete: false
-    }
+      showDelete: false,
+    };
   },
   methods: {
-    toggleTaskCompleted (task) {
-      this.$store.commit('toggleTaskCompleted', task)
+    toggleTaskCompleted(task) {
+      this.$store.commit("toggleTaskCompleted", task);
     },
-    editTask () {
+    editTask() {
       if (!this.task.completed) {
-        this.isEditing = true
-        this.$nextTick(() => this.$refs.input.focus())
+        this.isEditing = true;
       }
     },
-    doneEditing () {
-      this.stopEditing()
+    doneEditing() {
+      this.stopEditing();
     },
-    stopEditing () {
-      this.isEditing = false
+    stopEditing() {
+      this.isEditing = false;
     },
-    confirmDelete (task) {
-      this.$emit('confirmDelete', task)
+    confirmDelete(task) {
+      this.$emit("confirmDelete", task);
     },
-    onMouseOver () {
-      this.showDelete = true
+    onMouseOver() {
+      this.showDelete = true;
     },
-    onMouseLeave () {
-      this.showDelete = false
-    }
-  }
-}
+    onMouseLeave() {
+      this.showDelete = false;
+    },
+  },
+});
 </script>
 
 <style lang="scss" scoped>

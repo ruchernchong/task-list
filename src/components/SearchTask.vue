@@ -12,35 +12,35 @@
   </div>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script lang="ts">
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'SearchTask',
+  name: "SearchTask",
   computed: {
-    ...mapGetters(['tasks'])
+    ...mapGetters(["tasks"]),
   },
-  data () {
+  data() {
     return {
-      name: ''
-    }
+      name: "",
+    };
   },
   methods: {
-    setQuery (e) {
-      this.$store.commit('setQuery', e.target.value.toLowerCase())
+    setQuery(e) {
+      this.$store.commit("setQuery", e.target.value.toLowerCase());
     },
-    addTask () {
+    addTask() {
       const task = {
         name: this.name,
-        completed: false
-      }
+        completed: false,
+      };
 
-      this.$store.commit('addTask', task)
-      this.$store.commit('setQuery', '')
-      this.name = ''
-    }
-  }
-}
+      this.$store.commit("addTask", task);
+      this.$store.commit("setQuery", "");
+      this.name = "";
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

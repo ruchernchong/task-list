@@ -1,9 +1,6 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils'
-import Vuex from 'vuex'
-import SearchTask from '@/components/SearchTask'
-
-const localVue = createLocalVue()
-localVue.use(Vuex)
+import { shallowMount } from '@vue/test-utils'
+import { createStore } from 'vuex'
+import SearchTask from '@/components/SearchTask.vue'
 
 describe('SearchTask', () => {
   let wrapper
@@ -11,17 +8,18 @@ describe('SearchTask', () => {
 
   beforeEach(() => {
     mutations = {
-      addTask: jest.fn(),
-      setQuery: jest.fn()
+      addTask: vi.fn(),
+      setQuery: vi.fn()
     }
 
-    store = new Vuex.Store({
+    store = createStore({
       mutations
     })
 
     wrapper = shallowMount(SearchTask, {
-      store,
-      localVue
+      global: {
+        plugins: [store]
+      }
     })
   })
 

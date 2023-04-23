@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import DialogModal from '@/components/DialogModal'
+import DialogModal from '@/components/DialogModal.vue'
 
 describe('DialogModal', () => {
   let wrapper

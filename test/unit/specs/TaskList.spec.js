@@ -1,11 +1,8 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils'
-import Vuex from 'vuex'
-import TaskList from '@/components/TaskList'
-import TaskItem from '@/components/TaskItem'
-import DialogModal from '@/components/DialogModal'
-
-const localVue = createLocalVue()
-localVue.use(Vuex)
+import { mount } from '@vue/test-utils'
+import { createStore } from 'vuex'
+import TaskList from '@/components/TaskList.vue'
+import TaskItem from '@/components/TaskItem.vue'
+import DialogModal from '@/components/DialogModal.vue'
 
 describe('TaskList', () => {
   let wrapper
@@ -22,18 +19,18 @@ describe('TaskList', () => {
     }
 
     mutations = {
-      addTask: jest.fn(),
-      deleteTask: jest.fn(),
-      toggleTaskCompleted: jest.fn()
+      addTask: vi.fn(),
+      deleteTask: vi.fn(),
+      toggleTaskCompleted: vi.fn()
     }
 
-    store = new Vuex.Store({
+    store = createStore({
       state,
       mutations
     })
 
     computed = {
-      tasks () {
+      tasks() {
         const filteredTasks = state.tasks.filter(task =>
           task.name.toLowerCase().includes(state.query)
         )
@@ -42,15 +39,16 @@ describe('TaskList', () => {
       }
     }
 
-    wrapper = shallowMount(TaskList, {
-      store,
-      localVue,
+    wrapper = mount(TaskList, {
+      global: {
+        plugins: [store]
+      },
       computed
     })
   })
 
   test('should delete task when delete button is clicked', () => {
-    wrapper.find(DialogModal).vm.$emit('deleteTask')
+    wrapper.findComponent(DialogModal).vm.$emit('deleteTask')
 
     expect(mutations.deleteTask).toHaveBeenCalled()
 
@@ -62,7 +60,7 @@ describe('TaskList', () => {
     const task = { name: 'First task', completed: true }
 
     wrapper
-      .findAll(TaskItem)
+      .findAllComponents(TaskItem)
       .at(0)
       .vm.$emit('confirmDelete', task)
 
@@ -74,7 +72,7 @@ describe('TaskList', () => {
     const task = {}
 
     wrapper
-      .findAll(TaskItem)
+      .findAllComponents(TaskItem)
       .at(0)
       .vm.$emit('closeDialogModal', task)
 

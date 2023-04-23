@@ -4,11 +4,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Notification',
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "Notification",
   props: {
-    message: Object
-  }
-}
+    message: Object,
+  },
+});
 </script>

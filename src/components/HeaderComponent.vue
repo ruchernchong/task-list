@@ -30,20 +30,20 @@
   </nav>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { mapState } from "vuex";
 
 export default {
-  name: 'HeaderComponent',
-  data () {
+  name: "HeaderComponent",
+  data() {
     return {
-      isActive: false
-    }
+      isActive: false,
+    };
   },
   computed: {
-    ...mapState(['navs'])
-  }
-}
+    ...mapState(["navs"]),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

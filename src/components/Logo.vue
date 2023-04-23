@@ -1,20 +1,18 @@
 <template>
   <a :href="link.url" target="_blank" rel="noopener">
     <img
-      :src="
-        require(`@/assets/logos/${this.link.name
-          .toLowerCase()
-          .replace(/\s+/g, '-')}.png`)
-      "
+      :src="`../assets/logos/${link.name
+        .toLowerCase()
+        .replace(/\s+/g, '-')}.png`"
     />
   </a>
 </template>
 
-<script>
-export default {
-  name: 'Logo',
-  props: {
-    link: Object
-  }
-}
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "Logo",
+  props: ["link"],
+});
 </script>
